@@ -1,0 +1,102 @@
+[INFO] [2019-04-22 16:17:56][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization started
+ [INFO] [2019-04-22 16:17:56][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Mon Apr 22 16:17:56 CST 2019]; root of context hierarchy
+ [INFO] [2019-04-22 16:17:56][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+ [INFO] [2019-04-22 16:17:57][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+ [INFO] [2019-04-22 16:17:57][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/test],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.yaosiyuan.controller.UserController.test(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+ [INFO] [2019-04-22 16:17:57][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization completed in 1039 ms
+ [INFO] [2019-04-22 17:01:54][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization started
+ [INFO] [2019-04-22 17:01:54][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Mon Apr 22 17:01:54 CST 2019]; root of context hierarchy
+ [INFO] [2019-04-22 17:01:54][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+ [INFO] [2019-04-22 17:01:55][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+ [INFO] [2019-04-22 17:01:55][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/test],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.yaosiyuan.controller.UserController.test(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+ [INFO] [2019-04-22 17:01:55][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization completed in 1084 ms
+ [INFO] [2019-04-22 17:13:25][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization started
+ [INFO] [2019-04-22 17:13:25][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Mon Apr 22 17:13:25 CST 2019]; root of context hierarchy
+ [INFO] [2019-04-22 17:13:25][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+ [INFO] [2019-04-22 17:13:26][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+ [INFO] [2019-04-22 17:13:26][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/test],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.yaosiyuan.controller.UserController.test(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+ [INFO] [2019-04-22 17:13:26][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization completed in 779 ms
+ [INFO] [2019-04-22 17:16:37][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization started
+ [INFO] [2019-04-22 17:16:37][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Mon Apr 22 17:16:37 CST 2019]; root of context hierarchy
+ [INFO] [2019-04-22 17:16:37][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+ [INFO] [2019-04-22 17:16:37][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+ [INFO] [2019-04-22 17:16:38][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/test],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.yaosiyuan.controller.UserController.test(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+ [INFO] [2019-04-22 17:16:38][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization completed in 1419 ms
+ [INFO] [2019-04-22 17:17:54][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization started
+ [INFO] [2019-04-22 17:17:54][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Mon Apr 22 17:17:54 CST 2019]; root of context hierarchy
+ [INFO] [2019-04-22 17:17:54][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+ [INFO] [2019-04-22 17:17:54][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+ [INFO] [2019-04-22 17:17:54][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/test],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.yaosiyuan.controller.UserController.test(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+ [INFO] [2019-04-22 17:17:55][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization completed in 783 ms
+ [INFO] [2019-04-22 17:18:19][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization started
+ [INFO] [2019-04-22 17:18:19][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Mon Apr 22 17:18:19 CST 2019]; root of context hierarchy
+ [INFO] [2019-04-22 17:18:19][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+ [INFO] [2019-04-22 17:18:20][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+ [INFO] [2019-04-22 17:18:20][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/test],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.yaosiyuan.controller.UserController.test(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+ [INFO] [2019-04-22 17:18:20][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization completed in 836 ms
+ [INFO] [2019-04-22 17:20:14][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization started
+ [INFO] [2019-04-22 17:20:14][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Mon Apr 22 17:20:14 CST 2019]; root of context hierarchy
+ [INFO] [2019-04-22 17:20:14][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+ [INFO] [2019-04-22 17:20:15][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+ [INFO] [2019-04-22 17:20:15][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/test],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.yaosiyuan.controller.UserController.test(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+ [INFO] [2019-04-22 17:20:15][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization completed in 936 ms
+ [INFO] [2019-04-22 17:22:32][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization started
+ [INFO] [2019-04-22 17:22:33][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Mon Apr 22 17:22:32 CST 2019]; root of context hierarchy
+ [INFO] [2019-04-22 17:22:33][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+ [INFO] [2019-04-22 17:22:33][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+ [INFO] [2019-04-22 17:22:33][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/test],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.yaosiyuan.controller.UserController.test(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+ [INFO] [2019-04-22 17:22:33][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization completed in 769 ms
+ [INFO] [2019-04-22 17:25:47][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization started
+ [INFO] [2019-04-22 17:25:48][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Mon Apr 22 17:25:47 CST 2019]; root of context hierarchy
+ [INFO] [2019-04-22 17:25:48][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+ [INFO] [2019-04-22 17:25:48][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+ [INFO] [2019-04-22 17:25:48][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/test],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.yaosiyuan.controller.UserController.test(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+ [INFO] [2019-04-22 17:25:48][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization completed in 790 ms
+ [INFO] [2019-04-22 17:27:04][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization started
+ [INFO] [2019-04-22 17:27:04][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Mon Apr 22 17:27:04 CST 2019]; root of context hierarchy
+ [INFO] [2019-04-22 17:27:04][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+ [INFO] [2019-04-22 17:27:04][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+ [INFO] [2019-04-22 17:27:04][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/test],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.yaosiyuan.controller.UserController.test(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+ [INFO] [2019-04-22 17:27:04][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization completed in 759 ms
+ [WARN] [2019-04-22 17:27:49][org.springframework.web.servlet.PageNotFound]No mapping found for HTTP request with URI [/one/static/css/style-min.css] in DispatcherServlet with name 'SpringMVC'
+ [WARN] [2019-04-22 17:27:49][org.springframework.web.servlet.PageNotFound]No mapping found for HTTP request with URI [/one/static/css/font-awesome.min.css] in DispatcherServlet with name 'SpringMVC'
+ [WARN] [2019-04-22 17:27:49][org.springframework.web.servlet.PageNotFound]No mapping found for HTTP request with URI [/one/static/images/qqImg.png] in DispatcherServlet with name 'SpringMVC'
+ [WARN] [2019-04-22 17:27:49][org.springframework.web.servlet.PageNotFound]No mapping found for HTTP request with URI [/one/static/picture/logo.png] in DispatcherServlet with name 'SpringMVC'
+ [WARN] [2019-04-22 17:27:49][org.springframework.web.servlet.PageNotFound]No mapping found for HTTP request with URI [/one/static/js/sortable.min.js] in DispatcherServlet with name 'SpringMVC'
+ [WARN] [2019-04-22 17:27:49][org.springframework.web.servlet.PageNotFound]No mapping found for HTTP request with URI [/one/static/js/jquery.min.js] in DispatcherServlet with name 'SpringMVC'
+ [WARN] [2019-04-22 17:27:49][org.springframework.web.servlet.PageNotFound]No mapping found for HTTP request with URI [/one/static/js/perfect-scrollbar.min.js] in DispatcherServlet with name 'SpringMVC'
+ [WARN] [2019-04-22 17:27:49][org.springframework.web.servlet.PageNotFound]No mapping found for HTTP request with URI [/one/static/js/hao-min.js] in DispatcherServlet with name 'SpringMVC'
+ [WARN] [2019-04-22 17:27:49][org.springframework.web.servlet.PageNotFound]No mapping found for HTTP request with URI [/one/static/js/jquery.min.js] in DispatcherServlet with name 'SpringMVC'
+ [WARN] [2019-04-22 17:27:49][org.springframework.web.servlet.PageNotFound]No mapping found for HTTP request with URI [/one/static/js/perfect-scrollbar.min.js] in DispatcherServlet with name 'SpringMVC'
+ [WARN] [2019-04-22 17:27:49][org.springframework.web.servlet.PageNotFound]No mapping found for HTTP request with URI [/one/static/js/sortable.min.js] in DispatcherServlet with name 'SpringMVC'
+ [WARN] [2019-04-22 17:27:49][org.springframework.web.servlet.PageNotFound]No mapping found for HTTP request with URI [/one/static/js/hao-min.js] in DispatcherServlet with name 'SpringMVC'
+ [WARN] [2019-04-22 17:27:50][org.springframework.web.servlet.PageNotFound]No mapping found for HTTP request with URI [/one/static/images/favicon.ico] in DispatcherServlet with name 'SpringMVC'
+ [INFO] [2019-04-22 17:32:30][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization started
+ [INFO] [2019-04-22 17:32:30][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Mon Apr 22 17:32:30 CST 2019]; root of context hierarchy
+ [INFO] [2019-04-22 17:32:30][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+ [INFO] [2019-04-22 17:32:31][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+ [INFO] [2019-04-22 17:32:31][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/test],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.yaosiyuan.controller.UserController.test(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+ [INFO] [2019-04-22 17:32:31][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+ [INFO] [2019-04-22 17:32:31][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization completed in 783 ms
+ [INFO] [2019-04-22 17:35:53][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization started
+ [INFO] [2019-04-22 17:35:53][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Mon Apr 22 17:35:53 CST 2019]; root of context hierarchy
+ [INFO] [2019-04-22 17:35:53][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+ [INFO] [2019-04-22 17:35:54][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+ [INFO] [2019-04-22 17:35:54][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/test],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.yaosiyuan.controller.UserController.test(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+ [INFO] [2019-04-22 17:35:55][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+ [INFO] [2019-04-22 17:35:55][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization completed in 1902 ms
+ [INFO] [2019-04-22 17:40:20][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization started
+ [INFO] [2019-04-22 17:40:20][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Mon Apr 22 17:40:20 CST 2019]; root of context hierarchy
+ [INFO] [2019-04-22 17:40:20][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+ [INFO] [2019-04-22 17:40:20][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+ [INFO] [2019-04-22 17:40:21][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/test],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.yaosiyuan.controller.UserController.test(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+ [INFO] [2019-04-22 17:40:21][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+ [INFO] [2019-04-22 17:40:21][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization completed in 959 ms
+ [INFO] [2019-04-22 17:44:44][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization started
+ [INFO] [2019-04-22 17:44:44][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Mon Apr 22 17:44:44 CST 2019]; root of context hierarchy
+ [INFO] [2019-04-22 17:44:44][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+ [INFO] [2019-04-22 17:44:45][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+ [INFO] [2019-04-22 17:44:45][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/test],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.yaosiyuan.controller.UserController.test(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+ [INFO] [2019-04-22 17:44:45][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+ [INFO] [2019-04-22 17:44:45][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization completed in 767 ms
+ 
