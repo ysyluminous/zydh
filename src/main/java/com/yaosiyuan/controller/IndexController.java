@@ -1,5 +1,8 @@
 package com.yaosiyuan.controller;
 
+import com.yaosiyuan.model.Link;
+import com.yaosiyuan.service.ILinkService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,9 +19,14 @@ import javax.servlet.http.HttpServletRequest;
  **/
 @Controller
 public class IndexController {
-    // /user/test?id=1
+
+    @Autowired
+    ILinkService linkService;
     @RequestMapping(value="/",method= RequestMethod.GET)
     public String test(HttpServletRequest request, Model model){
-        return "one/index";
+        Link links = linkService.getLinks();
+        model.addAttribute("link",links);
+        System.out.println(links.toString());
+        return "one/test";
     }
 }

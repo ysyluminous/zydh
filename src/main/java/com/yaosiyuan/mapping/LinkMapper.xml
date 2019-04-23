@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yaosiyuan.dao.LinkMapper">
+  <resultMap id="BaseResultMap" type="com.yaosiyuan.model.Link">
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="linkTitle" property="linktitle" jdbcType="VARCHAR" />
+    <result column="linkInfo" property="linkinfo" jdbcType="VARCHAR" />
+    <result column="linkUrl" property="linkurl" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, linkTitle, linkInfo, linkUrl
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from link
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from link
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yaosiyuan.model.Link" >
+    insert into link (id, linkTitle, linkInfo, 
+      linkUrl)
+    values (#{id,jdbcType=INTEGER}, #{linktitle,jdbcType=VARCHAR}, #{linkinfo,jdbcType=VARCHAR}, 
+      #{linkurl,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yaosiyuan.model.Link" >
+    insert into link
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="linktitle != null" >
+        linkTitle,
+      </if>
+      <if test="linkinfo != null" >
+        linkInfo,
+      </if>
+      <if test="linkurl != null" >
+        linkUrl,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="linktitle != null" >
+        #{linktitle,jdbcType=VARCHAR},
+      </if>
+      <if test="linkinfo != null" >
+        #{linkinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="linkurl != null" >
+        #{linkurl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yaosiyuan.model.Link" >
+    update link
+    <set >
+      <if test="linktitle != null" >
+        linkTitle = #{linktitle,jdbcType=VARCHAR},
+      </if>
+      <if test="linkinfo != null" >
+        linkInfo = #{linkinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="linkurl != null" >
+        linkUrl = #{linkurl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yaosiyuan.model.Link" >
+    update link
+    set linkTitle = #{linktitle,jdbcType=VARCHAR},
+      linkInfo = #{linkinfo,jdbcType=VARCHAR},
+      linkUrl = #{linkurl,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
