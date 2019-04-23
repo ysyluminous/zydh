@@ -2,8 +2,6 @@ package com.yaosiyuan.controller;
 
 import com.yaosiyuan.model.User;
 import com.yaosiyuan.service.IUserService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,7 +23,6 @@ public class UserController {
 
     @Autowired
     private IUserService userService = null;
-    private static Logger log= LoggerFactory.getLogger(UserController.class);
 
 
     // /user/test?id=1

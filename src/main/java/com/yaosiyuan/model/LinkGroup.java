@@ -1,16 +1,23 @@
 package com.yaosiyuan.model;
 
-import java.util.List;
-
-/**
- * @ClassName LinkGroup
- * @Description TODO
- * @Author yaosiyuan
- * @Date 2019/4/23 8:51
- * @Version 1.0
- **/
 public class LinkGroup {
-    private  String groupTitle;
-    private  String groupDis;
-   private List<Link> links;
+    private Integer groupid;
+
+    private String groupname;
+
+    public Integer getGroupid() {
+        return groupid;
+    }
+
+    public void setGroupid(Integer groupid) {
+        this.groupid = groupid;
+    }
+
+    public String getGroupname() {
+        return groupname;
+    }
+
+    public void setGroupname(String groupname) {
+        this.groupname = groupname == null ? null : groupname.trim();
+    }
 }

@@ -1,6 +1,8 @@
 package com.yaosiyuan.controller;
 
-import com.yaosiyuan.model.Link;
+import com.yaosiyuan.model.Bar;
+import com.yaosiyuan.model.Groups;
+import com.yaosiyuan.service.IGroupService;
 import com.yaosiyuan.service.ILinkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * @ClassName IndexController
@@ -22,11 +25,25 @@ public class IndexController {
 
     @Autowired
     ILinkService linkService;
+
+    @Autowired
+    IGroupService groupService;
+
     @RequestMapping(value="/",method= RequestMethod.GET)
     public String test(HttpServletRequest request, Model model){
-        Link links = linkService.getLinks();
-        model.addAttribute("link",links);
-        System.out.println(links.toString());
+
+        Bar bar = new Bar();
+        //查询所有bar
+        List<Groups> groups = groupService.selectAllGroup();
+        System.out.println(groups);
+
+        for(Groups group : groups) {
+            System.out.println(group);
+        }
+        //查询所有link
+
+        //封装进model
+        model.addAttribute("bars", bar);
         return "one/test";
     }
 }

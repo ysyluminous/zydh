@@ -1,10 +1,12 @@
 package com.yaosiyuan.service.impl;
 
-import com.yaosiyuan.dao.LinkMapper;
-import com.yaosiyuan.model.Link;
+import com.yaosiyuan.dao.LinksMapper;
+import com.yaosiyuan.model.Links;
 import com.yaosiyuan.service.ILinkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @ClassName LinkServiceImpl
@@ -17,9 +19,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class LinkServiceImpl implements ILinkService {
     @Autowired
-    LinkMapper linkMapper;
-    public Link getLinks() {
-        Link link = linkMapper.selectByPrimaryKey(1);
+    LinksMapper linkMapper;
+    public Links getLinks() {
+        Links link = linkMapper.selectByPrimaryKey(1);
         return link;
+    }
+
+    public List<Links> selectAllLink() {
+        List<Links> links = linkMapper.selectAllLink();
+        return links;
     }
 }

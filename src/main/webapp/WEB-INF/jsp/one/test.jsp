@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -259,22 +260,35 @@
 
 					<!-- box-links-->
 					<div class="box-links">
-						<div class="links panel">
-							<div class="panel-heading" id="top-links">
-								<i class="fa fa-bookmark-o"></i>常用
-							</div>
-							<div class="panel-body">
-								<dl class="row">
-									<dd class="col-sm-3 col-md-2 col-xs-3">
-										<a href="${link.linkurl}" target="_blank"><i
-											class="link-logo"></i><span class="link-title">${link.linktitle}</span></a><span
-											class="sub-link"><span class="link-info">${link.linkinfo}</span>
-									</dd>
+
+						<c:forEach items="${bars.linkGroup}" var="bar" >
+							<div class="links panel">
+								<div class="panel-heading" id="top-links">
+									<i class="fa fa-bookmark-o"></i>${bar.groupname}
+								</div>
+								<div class="panel-body">
 
 
-								</dl>
+
+									<dl class="row">
+										<dd class="col-sm-3 col-md-2 col-xs-3">
+											<a href="https://www.52pojie.cn/" target="_blank"><i
+													class="link-logo"></i><span class="link-title">吾爱破解</span></a><span
+												class="sub-link"><span class="link-info">神奇软件论坛</span>
+										</dd>
+											<%--<c:forEach items="${links}"  var="link" >--%>
+											<%--<dd class="col-sm-3 col-md-2 col-xs-3">--%>
+											<%--<a href="${link.linkurl}" target="_blank"><i--%>
+											<%--class="link-logo"></i><span class="link-title">${link.linktitle}</span></a><span--%>
+											<%--class="sub-link"><span class="link-info">${link.linkinfo}</span>--%>
+											<%--</dd>--%>
+
+											<%--</c:forEach>--%>
+									</dl>
+								</div>
 							</div>
-						</div>
+						</c:forEach>
+
 
 
 

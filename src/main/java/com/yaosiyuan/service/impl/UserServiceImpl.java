@@ -1,6 +1,6 @@
 package com.yaosiyuan.service.impl;
 
-import com.yaosiyuan.dao.IUserDao;
+import com.yaosiyuan.dao.UserMapper;
 import com.yaosiyuan.model.User;
 import com.yaosiyuan.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +16,10 @@ import org.springframework.stereotype.Service;
 @Service("userService")
 public class UserServiceImpl implements IUserService {
     @Autowired
-    private IUserDao userDao;
+    private UserMapper userMapper;
 
     public User getUserById(int userId) {
-        return this.userDao.selectByPrimaryKey(userId);
+        return this.userMapper.selectByPrimaryKey(userId);
     }
 
 }

@@ -1,33 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.yaosiyuan.dao.LinkMapper">
-  <resultMap id="BaseResultMap" type="com.yaosiyuan.model.Link">
+<mapper namespace="com.yaosiyuan.dao.LinksMapper" >
+  <resultMap id="BaseResultMap" type="com.yaosiyuan.model.Links" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="linkTitle" property="linktitle" jdbcType="VARCHAR" />
     <result column="linkInfo" property="linkinfo" jdbcType="VARCHAR" />
     <result column="linkUrl" property="linkurl" jdbcType="VARCHAR" />
+    <result column="groupid" property="groupid" jdbcType="INTEGER" />
+    <result column="userId" property="userid" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, linkTitle, linkInfo, linkUrl
+    id, linkTitle, linkInfo, linkUrl, groupid, userId
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
-    from link
+    from links
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from link
+    delete from links
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.yaosiyuan.model.Link" >
-    insert into link (id, linkTitle, linkInfo, 
-      linkUrl)
-    values (#{id,jdbcType=INTEGER}, #{linktitle,jdbcType=VARCHAR}, #{linkinfo,jdbcType=VARCHAR}, 
-      #{linkurl,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.yaosiyuan.model.Links" >
+    insert into links (id, linkTitle, linkInfo,
+      linkUrl, groupid, userId
+      )
+    values (#{id,jdbcType=INTEGER}, #{linktitle,jdbcType=VARCHAR}, #{linkinfo,jdbcType=VARCHAR},
+      #{linkurl,jdbcType=VARCHAR}, #{groupid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="com.yaosiyuan.model.Link" >
-    insert into link
+  <insert id="insertSelective" parameterType="com.yaosiyuan.model.Links" >
+    insert into links
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -40,6 +44,12 @@
       </if>
       <if test="linkurl != null" >
         linkUrl,
+      </if>
+      <if test="groupid != null" >
+        groupid,
+      </if>
+      <if test="userid != null" >
+        userId,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -55,10 +65,16 @@
       <if test="linkurl != null" >
         #{linkurl,jdbcType=VARCHAR},
       </if>
+      <if test="groupid != null" >
+        #{groupid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.yaosiyuan.model.Link" >
-    update link
+  <update id="updateByPrimaryKeySelective" parameterType="com.yaosiyuan.model.Links" >
+    update links
     <set >
       <if test="linktitle != null" >
         linkTitle = #{linktitle,jdbcType=VARCHAR},
@@ -69,14 +85,22 @@
       <if test="linkurl != null" >
         linkUrl = #{linkurl,jdbcType=VARCHAR},
       </if>
+      <if test="groupid != null" >
+        groupid = #{groupid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=INTEGER},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.yaosiyuan.model.Link" >
-    update link
+  <update id="updateByPrimaryKey" parameterType="com.yaosiyuan.model.Links" >
+    update links
     set linkTitle = #{linktitle,jdbcType=VARCHAR},
       linkInfo = #{linkinfo,jdbcType=VARCHAR},
-      linkUrl = #{linkurl,jdbcType=VARCHAR}
+      linkUrl = #{linkurl,jdbcType=VARCHAR},
+      groupid = #{groupid,jdbcType=INTEGER},
+      userId = #{userid,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

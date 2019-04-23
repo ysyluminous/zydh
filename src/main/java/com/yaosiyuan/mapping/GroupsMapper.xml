@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yaosiyuan.dao.GroupsMapper" >
+  <resultMap id="BaseResultMap" type="com.yaosiyuan.model.Groups" >
+    <id column="groupId" property="groupid" jdbcType="INTEGER" />
+    <result column="groupName" property="groupname" jdbcType="VARCHAR" />
+    <result column="parentId" property="parentid" jdbcType="INTEGER" />
+    <result column="typeid" property="typeid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    groupId, groupName, parentId, typeid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from groups
+    where groupId = #{groupid,jdbcType=INTEGER}
+  </select>
+  <select id="selectAllGroup" resultMap="BaseResultMap" parameterType="com.yaosiyuan.model.Groups" >
+    select *
+    from groups
+    where parentid = 0
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from groups
+    where groupId = #{groupid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yaosiyuan.model.Groups" >
+    insert into groups (groupId, groupName, parentId, 
+      typeid)
+    values (#{groupid,jdbcType=INTEGER}, #{groupname,jdbcType=VARCHAR}, #{parentid,jdbcType=INTEGER}, 
+      #{typeid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yaosiyuan.model.Groups" >
+    insert into groups
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="groupid != null" >
+        groupId,
+      </if>
+      <if test="groupname != null" >
+        groupName,
+      </if>
+      <if test="parentid != null" >
+        parentId,
+      </if>
+      <if test="typeid != null" >
+        typeid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="groupid != null" >
+        #{groupid,jdbcType=INTEGER},
+      </if>
+      <if test="groupname != null" >
+        #{groupname,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null" >
+        #{parentid,jdbcType=INTEGER},
+      </if>
+      <if test="typeid != null" >
+        #{typeid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yaosiyuan.model.Groups" >
+    update groups
+    <set >
+      <if test="groupname != null" >
+        groupName = #{groupname,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null" >
+        parentId = #{parentid,jdbcType=INTEGER},
+      </if>
+      <if test="typeid != null" >
+        typeid = #{typeid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where groupId = #{groupid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yaosiyuan.model.Groups" >
+    update groups
+    set groupName = #{groupname,jdbcType=VARCHAR},
+      parentId = #{parentid,jdbcType=INTEGER},
+      typeid = #{typeid,jdbcType=INTEGER}
+    where groupId = #{groupid,jdbcType=INTEGER}
+  </update>
+</mapper>

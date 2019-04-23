@@ -1,6 +1,6 @@
 package com.yaosiyuan.model;
 
-public class Link {
+public class Links {
     private Integer id;
 
     private String linktitle;
@@ -8,6 +8,10 @@ public class Link {
     private String linkinfo;
 
     private String linkurl;
+
+    private Integer groupid;
+
+    private Integer userid;
 
     public Integer getId() {
         return id;
@@ -41,13 +45,19 @@ public class Link {
         this.linkurl = linkurl == null ? null : linkurl.trim();
     }
 
-    @Override
-    public String toString() {
-        return "Link{" +
-                "id=" + id +
-                ", linktitle='" + linktitle + '\'' +
-                ", linkinfo='" + linkinfo + '\'' +
-                ", linkurl='" + linkurl + '\'' +
-                '}';
+    public Integer getGroupid() {
+        return groupid;
+    }
+
+    public void setGroupid(Integer groupid) {
+        this.groupid = groupid;
+    }
+
+    public Integer getUserid() {
+        return userid;
+    }
+
+    public void setUserid(Integer userid) {
+        this.userid = userid;
     }
 }

@@ -1,8 +1,9 @@
 package com.yaosiyuan.dao;
 
+
 import com.yaosiyuan.model.User;
 
-public interface IUserDao {
+public interface UserMapper {
     int deleteByPrimaryKey(Integer id);
 
     int insert(User record);

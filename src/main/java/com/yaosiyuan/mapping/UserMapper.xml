@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.yaosiyuan.dao.IUserDao" >
+<mapper namespace="com.yaosiyuan.dao.UserMapper" >
   <resultMap id="BaseResultMap" type="com.yaosiyuan.model.User" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="user_name" property="userName" jdbcType="VARCHAR" />
@@ -13,21 +13,21 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from user_t
+    from user
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from user_t
+    delete from user
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.yaosiyuan.model.User" >
-    insert into user_t (id, user_name, password, 
+    insert into user (id, user_name, password, 
       age)
     values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{age,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.yaosiyuan.model.User" >
-    insert into user_t
+    insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -58,7 +58,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.yaosiyuan.model.User" >
-    update user_t
+    update user
     <set >
       <if test="userName != null" >
         user_name = #{userName,jdbcType=VARCHAR},
@@ -73,7 +73,7 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.yaosiyuan.model.User" >
-    update user_t
+    update user
     set user_name = #{userName,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       age = #{age,jdbcType=INTEGER}
