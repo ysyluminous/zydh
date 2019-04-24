@@ -9,23 +9,20 @@ public class Groups {
 
     private Integer parentid;
 
-    private Integer typeid;
+    private Integer catid;
 
-     private List<Groups> groups;
+    private List<Groups> groups;
 
     private List<Groups> subGroup;
 
     private List<Links> links;
 
-
-    private  List<Row> rows;
-
-    public List<Row> getRows() {
-        return rows;
+    public List<Groups> getGroups() {
+        return groups;
     }
 
-    public void setRows(List<Row> rows) {
-        this.rows = rows;
+    public void setGroups(List<Groups> groups) {
+        this.groups = groups;
     }
 
     public List<Groups> getSubGroup() {
@@ -36,13 +33,6 @@ public class Groups {
         this.subGroup = subGroup;
     }
 
-    public List<Groups> getGroups() {
-        return groups;
-    }
-
-    public void setGroups(List<Groups> groups) {
-        this.groups = groups;
-    }
     public List<Links> getLinks() {
         return links;
     }
@@ -75,22 +65,11 @@ public class Groups {
         this.parentid = parentid;
     }
 
-    public Integer getTypeid() {
-        return typeid;
+    public Integer getCatid() {
+        return catid;
     }
 
-    public void setTypeid(Integer typeid) {
-        this.typeid = typeid;
+    public void setCatid(Integer catid) {
+        this.catid = catid;
     }
-
-    @Override
-    public String toString() {
-        return "Groups{" +
-                "groupid=" + groupid +
-                ", groupname='" + groupname + '\'' +
-                ", parentid=" + parentid +
-                ", typeid=" + typeid +
-                '}';
-    }
-
 }

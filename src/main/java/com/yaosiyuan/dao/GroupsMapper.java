@@ -1,6 +1,5 @@
 package com.yaosiyuan.dao;
 
-
 import com.yaosiyuan.model.Groups;
 
 import java.util.List;
@@ -17,6 +16,7 @@ public interface GroupsMapper {
     int updateByPrimaryKeySelective(Groups record);
 
     int updateByPrimaryKey(Groups record);
+
     List<Groups> selectParentGroup ();
 
     List<Groups> selectSubGroupByPid(Integer pid);

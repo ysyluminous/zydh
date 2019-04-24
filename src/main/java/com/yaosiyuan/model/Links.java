@@ -11,8 +11,6 @@ public class Links {
 
     private Integer groupid;
 
-    private Integer userid;
-
     public Integer getId() {
         return id;
     }
@@ -51,13 +49,5 @@ public class Links {
 
     public void setGroupid(Integer groupid) {
         this.groupid = groupid;
-    }
-
-    public Integer getUserid() {
-        return userid;
-    }
-
-    public void setUserid(Integer userid) {
-        this.userid = userid;
     }
 }

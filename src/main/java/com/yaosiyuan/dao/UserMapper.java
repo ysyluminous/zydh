@@ -1,6 +1,5 @@
 package com.yaosiyuan.dao;
 
-
 import com.yaosiyuan.model.User;
 
 public interface UserMapper {

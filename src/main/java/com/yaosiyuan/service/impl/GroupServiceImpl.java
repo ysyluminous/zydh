@@ -30,4 +30,9 @@ public class GroupServiceImpl implements IGroupService {
     public List<Groups> selectSubGroupByPid(Integer pid) {
         return groupsMapper.selectSubGroupByPid(pid);
     }
+
+    @Override
+    public void selectParentGroupsByCat(Integer cat) {
+
+    }
 }

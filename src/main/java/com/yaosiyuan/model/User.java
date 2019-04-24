@@ -1,22 +1,13 @@
-
 package com.yaosiyuan.model;
-/**
- * @ClassName User
- * @Description TODO
- * @Author yaosiyuan
- * @Date 2019/4/22 15:44
- * @Version 1.0
- **/
-
 
 public class User {
     private Integer id;
 
-    private String userName;
+    private String username;
 
-    private String password;
+    private String userpwd;
 
-    private Integer age;
+    private String usereml;
 
     public Integer getId() {
         return id;
@@ -26,35 +17,27 @@ public class User {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName == null ? null : userName.trim();
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
     }
 
-    public String getPassword() {
-        return password;
+    public String getUserpwd() {
+        return userpwd;
     }
 
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+    public void setUserpwd(String userpwd) {
+        this.userpwd = userpwd == null ? null : userpwd.trim();
     }
 
-    public Integer getAge() {
-        return age;
+    public String getUsereml() {
+        return usereml;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setUsereml(String usereml) {
+        this.usereml = usereml == null ? null : usereml.trim();
     }
-
-    @Override
-    public String toString() {
-        return "User [id=" + id + ", userName=" + userName + ", password="
-                + password + ", age=" + age + "]";
-    }
-
-
 }
