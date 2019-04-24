@@ -44,7 +44,7 @@ public class CategoryController {
         //通过账号信息查询category
 
         //通过获取url上的id值
-//        Integer cat = Integer.valueOf(request.getParameter("cat"));
+        Integer cat = Integer.valueOf(request.getParameter("cat"));
         //通过category查询 group
         //通过grouo查询link
         List<Category> categories = categorySerivce.finCategoryByUserId(1);
