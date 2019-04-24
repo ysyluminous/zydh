@@ -265,11 +265,7 @@
 							</div>
 							<div class="panel-body">
 								<dl class="row">
-									<dd class="col-sm-3 col-md-2 col-xs-3">
-										<a href="http://zhaoyang.space:28888/" target="_blank"><i
-											class="link-logo"></i><span class="link-title">昭阳博客</span></a><span
-											class="sub-link"><span class="link-info"></span>
-									</dd>
+
 									<dd class="col-sm-3 col-md-2 col-xs-3">
 										<a href="https://www.jianshu.com/" target="_blank"><i
 											class="link-logo"></i><span class="link-title">简书</span></a><span

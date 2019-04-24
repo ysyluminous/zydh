@@ -21,7 +21,13 @@ public class GroupServiceImpl implements IGroupService {
     @Autowired
     GroupsMapper groupsMapper;
 
-    public List<Groups> selectAllGroup() {
-        return groupsMapper.selectAllGroup();
+    @Override
+    public List<Groups> selectParentGroup() {
+        return groupsMapper.selectParentGroup();
+    }
+
+    @Override
+    public List<Groups> selectSubGroupByPid(Integer pid) {
+        return groupsMapper.selectSubGroupByPid(pid);
     }
 }

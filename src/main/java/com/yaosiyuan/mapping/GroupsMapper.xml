@@ -16,10 +16,14 @@
     from groups
     where groupId = #{groupid,jdbcType=INTEGER}
   </select>
-  <select id="selectAllGroup" resultMap="BaseResultMap" parameterType="com.yaosiyuan.model.Groups" >
+  <select id="selectParentGroup" resultMap="BaseResultMap" parameterType="com.yaosiyuan.model.Groups" >
     select *
     from groups
     where parentid = 0
+  </select>
+
+  <select id="selectSubGroupByPid" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    SELECT * from groups where parentId = #{parentId,jdbcType=INTEGER}
   </select>
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >

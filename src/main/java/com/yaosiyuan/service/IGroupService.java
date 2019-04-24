@@ -13,5 +13,7 @@ import java.util.List;
  **/
 public interface IGroupService {
 
-    public List<Groups> selectAllGroup();
+    public List<Groups> selectParentGroup();
+
+    List<Groups> selectSubGroupByPid(Integer pid);
 }

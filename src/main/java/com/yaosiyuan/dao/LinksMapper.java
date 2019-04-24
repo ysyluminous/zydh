@@ -18,4 +18,5 @@ public interface LinksMapper {
     int updateByPrimaryKey(Links record);
 
     List<Links> selectAllLink();
+    List<Links> selectLinksByGroupId(Integer id);
 }

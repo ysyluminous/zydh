@@ -17,5 +17,7 @@ public interface GroupsMapper {
     int updateByPrimaryKeySelective(Groups record);
 
     int updateByPrimaryKey(Groups record);
-    List<Groups> selectAllGroup ();
+    List<Groups> selectParentGroup ();
+
+    List<Groups> selectSubGroupByPid(Integer pid);
 }

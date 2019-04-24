@@ -1,5 +1,7 @@
 package com.yaosiyuan.model;
 
+import java.util.List;
+
 public class Groups {
     private Integer groupid;
 
@@ -8,6 +10,46 @@ public class Groups {
     private Integer parentid;
 
     private Integer typeid;
+
+     private List<Groups> groups;
+
+    private List<Groups> subGroup;
+
+    private List<Links> links;
+
+
+    private  List<Row> rows;
+
+    public List<Row> getRows() {
+        return rows;
+    }
+
+    public void setRows(List<Row> rows) {
+        this.rows = rows;
+    }
+
+    public List<Groups> getSubGroup() {
+        return subGroup;
+    }
+
+    public void setSubGroup(List<Groups> subGroup) {
+        this.subGroup = subGroup;
+    }
+
+    public List<Groups> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(List<Groups> groups) {
+        this.groups = groups;
+    }
+    public List<Links> getLinks() {
+        return links;
+    }
+
+    public void setLinks(List<Links> links) {
+        this.links = links;
+    }
 
     public Integer getGroupid() {
         return groupid;
@@ -50,4 +92,5 @@ public class Groups {
                 ", typeid=" + typeid +
                 '}';
     }
+
 }

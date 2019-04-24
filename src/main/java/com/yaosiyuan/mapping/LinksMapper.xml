@@ -18,6 +18,26 @@
     from links
     where id = #{id,jdbcType=INTEGER}
   </select>
+
+  <select id="selectLinksByGroupId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    SELECT
+    l.id,
+    l.linkTitle,
+    l.linkInfo,
+    l.linkUrl,
+    l.groupId,
+    l.userId
+    FROM
+    links l,
+    groups g
+    WHERE
+    l.groupid = g.groupId
+    and
+    l.groupid=#{groupid,jdbcType=INTEGER}
+
+
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from links
     where id = #{id,jdbcType=INTEGER}

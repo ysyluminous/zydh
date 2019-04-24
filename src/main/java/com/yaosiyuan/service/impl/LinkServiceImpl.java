@@ -20,13 +20,21 @@ import java.util.List;
 public class LinkServiceImpl implements ILinkService {
     @Autowired
     LinksMapper linkMapper;
+    @Override
     public Links getLinks() {
         Links link = linkMapper.selectByPrimaryKey(1);
         return link;
     }
 
+    @Override
     public List<Links> selectAllLink() {
         List<Links> links = linkMapper.selectAllLink();
+        return links;
+    }
+
+    @Override
+    public List<Links> selectLinksByGroupId(Integer groupId) {
+        List<Links> links = linkMapper.selectLinksByGroupId(groupId);
         return links;
     }
 }

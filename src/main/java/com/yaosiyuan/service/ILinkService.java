@@ -15,4 +15,6 @@ public interface ILinkService {
     public Links getLinks();
 
     public List<Links> selectAllLink();
+
+    public List<Links> selectLinksByGroupId(Integer groupId);
 }
