@@ -17,6 +17,6 @@ public interface IGroupService {
 
     List<Groups> selectSubGroupByPid(Integer pid);
 
-    void selectParentGroupsByCat(Integer cat);
+    List<Groups> selectParentGroupsByCat(Integer cat);
 
 }

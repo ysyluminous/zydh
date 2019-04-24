@@ -20,4 +20,5 @@ public interface GroupsMapper {
     List<Groups> selectParentGroup ();
 
     List<Groups> selectSubGroupByPid(Integer pid);
+    List<Groups> selectParentGroupsByCat(Integer cat);
 }

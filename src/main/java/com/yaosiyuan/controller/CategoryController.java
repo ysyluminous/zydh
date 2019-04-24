@@ -40,27 +40,21 @@ public class CategoryController {
 
 
         //获取账号信息
-
         //通过账号信息查询category
+
+        //通过category查询 group
+        List<Category> categories = categorySerivce.finCategoryByUserId(1);
+        model.addAttribute("categories",categories);
 
         //通过获取url上的id值
         Integer cat = Integer.valueOf(request.getParameter("cat"));
-        //通过category查询 group
-        //通过grouo查询link
-        List<Category> categories = categorySerivce.finCategoryByUserId(1);
-
-        model.addAttribute("categories",categories);
-
-        //通过
-        //获取类别
 
         //通过类别查询所有类别
-//        List<>groupService.selectParentGroupsByCat(cat);
+        List<Groups> selectParentGroupsByCat = groupService.selectParentGroupsByCat(cat);
 
-
-        //查询所有顶级类别
-        List<Groups> groups = groupService.selectParentGroup();
-        for (Groups group : groups) {
+//        //查询所有顶级类别
+//        List<Groups> groups = groupService.selectParentGroup();
+        for (Groups group : selectParentGroupsByCat) {
 //            System.out.println(group);
 
             //如果是顶级类别
@@ -79,7 +73,7 @@ public class CategoryController {
             }
 //            group.setLinks(links);
         }
-        model.addAttribute("groups", groups);
+        model.addAttribute("groups", selectParentGroupsByCat);
         return "admin/index";
     }
 

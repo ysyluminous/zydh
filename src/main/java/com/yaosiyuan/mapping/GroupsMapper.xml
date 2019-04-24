@@ -25,7 +25,20 @@
     SELECT * from groups where parentId = #{parentId,jdbcType=INTEGER}
   </select>
 
-
+  <select id="selectParentGroupsByCat" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    SELECT
+        g.groupId,
+        g.groupName,
+        g.parentId,
+        g.catId
+    FROM
+	  category c,
+	  groups g
+    WHERE
+	  c.id = g.catId
+    AND g.parentId=0
+    and g.catId = #{catId,jdbcType=INTEGER}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from groups
     where groupId = #{groupid,jdbcType=INTEGER}

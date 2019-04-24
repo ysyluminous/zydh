@@ -32,7 +32,7 @@ public class GroupServiceImpl implements IGroupService {
     }
 
     @Override
-    public void selectParentGroupsByCat(Integer cat) {
-
+    public List<Groups> selectParentGroupsByCat(Integer cat) {
+        return groupsMapper.selectParentGroupsByCat(cat);
     }
 }
