@@ -18,8 +18,14 @@ public class UserServiceImpl implements IUserService {
     @Autowired
     private UserMapper userMapper;
 
+    @Override
     public User getUserById(int userId) {
         return this.userMapper.selectByPrimaryKey(userId);
+    }
+
+    @Override
+    public User findByName(String username) {
+        return userMapper.findByName(username);
     }
 
 }

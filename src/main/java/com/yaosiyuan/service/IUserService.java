@@ -11,4 +11,6 @@ import com.yaosiyuan.model.User;
  **/
 public interface IUserService {
     public User getUserById(int userId);
+
+    User findByName(String username);
 }
