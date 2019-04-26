@@ -60,10 +60,15 @@
         <property name="passwordParam" value="password"/>
         <property name="loginUrl" value="/user/login"/>
     </bean>
-
+    <!-- 用户授权信息Cache, 采用EhCache -->
+    <bean id="shiroEhcacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+        <property name="cacheManagerConfigFile" value="classpath:ehcache.xml"></property>
+    </bean>
     <!-- 安全管理器 -->
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realm" ref="userRealm"/>
+        <!-- 设置缓存管理器为 ehcache -->
+       <property name="cacheManager" ref="shiroEhcacheManager"/>
     </bean>
 
     <!-- Realm实现 -->

@@ -3,12 +3,14 @@ package com.yaosiyuan.shiro;
 
 import com.yaosiyuan.model.User;
 import com.yaosiyuan.service.IUserService;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * @ClassName UserRealm
@@ -17,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @Date 2019/4/25 0:29
  * @Version 1.0
  **/
+@Component
 public class UserRealm extends AuthorizingRealm {
     @Autowired
     private IUserService userService;
@@ -49,5 +52,10 @@ public class UserRealm extends AuthorizingRealm {
                 getName()
         );
         return authenticationInfo;
+    }
+
+    public void clearCache() {
+        PrincipalCollection principals = SecurityUtils.getSubject().getPrincipals();
+        super.clearCache(principals);
     }
 }
