@@ -43,6 +43,12 @@
     values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{userpwd,jdbcType=VARCHAR}, 
       #{usereml,jdbcType=VARCHAR})
   </insert>
+  <insert id="saveUser" parameterType="com.yaosiyuan.model.User" >
+    insert into user (id, userName, userPwd,
+      userEml)
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{userpwd,jdbcType=VARCHAR},
+      #{usereml,jdbcType=VARCHAR})
+  </insert>
   <insert id="insertSelective" parameterType="com.yaosiyuan.model.User" >
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >

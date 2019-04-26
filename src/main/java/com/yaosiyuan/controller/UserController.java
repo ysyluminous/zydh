@@ -29,8 +29,8 @@ public class UserController {
     private IUserService userService = null;
 
 
-    @RequestMapping(value="/login",method= RequestMethod.POST )
-    public String test(HttpServletRequest request, Model model, @ModelAttribute User user ){
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String test(HttpServletRequest request, Model model, @ModelAttribute User user) {
 
         String userpwd = user.getUserpwd();
         String usereml = user.getUsereml();
@@ -49,7 +49,7 @@ public class UserController {
 //                model.addAttribute("logUserEmail",session.getAttribute("logUserEmail"));
 //                redirectAttributes.addAttribute("logUserEmail",logUserEmail);
                 return "redirect:/";
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
                 error = "未知错误，错误信息：" + e.getMessage();
             }
@@ -62,9 +62,30 @@ public class UserController {
     }
 
 
-    @RequestMapping(method= RequestMethod.GET)
-    public String login(HttpServletRequest request, Model model){
-
+    @RequestMapping(method = RequestMethod.GET)
+    public String login(HttpServletRequest request, Model model) {
         return "admin/login";
+    }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logout(HttpServletRequest request, Model model) {
+        return "/";
+    }
+
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    public String register(HttpServletRequest request, Model model) {
+        return "/admin/register";
+    }
+
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public String postRegister(HttpServletRequest request, Model model, @ModelAttribute User user) {
+        User newuser = new User();
+        String username = user.getUsername();
+        String usereml = user.getUsereml();
+        String userpwd = user.getUserpwd();
+        newuser.setUserpwd(user.getUserpwd());
+        userService.saveUser(user);
+        request.getSession().setAttribute("user", user);
+        return "redirect:/user";
     }
 }

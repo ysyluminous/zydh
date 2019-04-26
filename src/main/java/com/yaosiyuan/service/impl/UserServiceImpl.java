@@ -33,6 +33,11 @@ public class UserServiceImpl implements IUserService {
         return userMapper.findUserByEmail(email);
     }
 
+    @Override
+    public void saveUser(User user) {
+        userMapper.saveUser(user);
+    }
+
 //    public
 
 }
