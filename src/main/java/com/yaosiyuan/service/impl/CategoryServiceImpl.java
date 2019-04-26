@@ -24,4 +24,9 @@ public class CategoryServiceImpl  implements ICategorySerivce {
     public List<Category> finCategoryByUserId(Integer cat) {
         return categoryMapper.finCategoryByUserId(cat);
     }
+
+    @Override
+    public List<Category> findCategoryByEmail(String email) {
+        return categoryMapper.findCategoryByEmail(email);
+    }
 }

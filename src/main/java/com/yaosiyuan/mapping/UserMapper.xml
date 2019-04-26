@@ -17,6 +17,13 @@
     where id = #{id,jdbcType=INTEGER}
   </select>
 
+
+  <select id="findUserByEmail" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from user
+    where userEml = #{email,jdbcType=INTEGER}
+  </select>
   <select id="findByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select
     <include refid="Base_Column_List" />

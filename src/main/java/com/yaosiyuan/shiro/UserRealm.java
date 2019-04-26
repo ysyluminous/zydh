@@ -35,17 +35,18 @@ public class UserRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-        String username = (String) token.getPrincipal();
-        User user = userService.findByName(username);
-        if (user == null) {
+
+        String email = (String) token.getPrincipal();
+        User userByEmail = userService.findUserByEmail(email);
+        if (userByEmail == null) {
             throw new UnknownAccountException(); //没有找到账号
         }
 
         //交给AuthenticationRealm使用CredentialsMatcher进行密码匹配
         SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
-                user.getUsername(), //用户名
-                user.getUserpwd(), //密码
-                getName() //realm name
+                userByEmail.getUsereml(),
+                userByEmail.getUserpwd(),
+                getName()
         );
         return authenticationInfo;
     }

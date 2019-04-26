@@ -27,6 +27,22 @@
 	  c.userId = u.id
     AND c.userId = #{userId,jdbcType=INTEGER}
   </select>
+
+
+    <select id="findCategoryByEmail" resultMap="BaseResultMap" parameterType="java.lang.String">
+    SELECT
+	  c.id,
+	  c. NAME,
+	  c.userId
+    FROM
+	  category c,
+	USER u
+    WHERE
+	  c.userId = u.id
+    AND c.userId = #{email,jdbcType=INTEGER}
+  </select>
+
+
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from category
     where id = #{id,jdbcType=INTEGER}

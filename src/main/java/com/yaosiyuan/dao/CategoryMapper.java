@@ -18,4 +18,6 @@ public interface CategoryMapper {
     int updateByPrimaryKey(Category record);
 
     List<Category> finCategoryByUserId(Integer userId);
+
+    List<Category> findCategoryByEmail(String email);
 }

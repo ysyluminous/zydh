@@ -13,4 +13,6 @@ public interface IUserService {
     public User getUserById(int userId);
 
     User findByName(String username);
+
+    User findUserByEmail(String email);
 }

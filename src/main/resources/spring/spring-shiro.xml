@@ -11,7 +11,7 @@
         <!-- Shiro的安全管理器，所有关于安全的操作都会经过SecurityManager -->
         <property name="securityManager" ref="securityManager"/>
         <!-- 系统认证提交地址，如果用户退出即session丢失就会访问这个页面 -->
-        <property name="loginUrl" value="/user/login"/>
+        <property name="loginUrl" value="/"/>
         <!-- 权限验证失败跳转的页面，需要配合Spring的ExceptionHandler异常处理机制使用 -->
         <property name="unauthorizedUrl" value="/user/unauthorized"/>
         <property name="filters">
@@ -22,6 +22,8 @@
         <!-- 自定义的过滤器链，从上向下执行，一般将`/**`放到最下面 -->
         <property name="filterChainDefinitions">
             <value>
+
+
                 <!-- 静态资源不拦截 -->
                 /static/** = anon
                 /lib/** = anon
@@ -32,11 +34,14 @@
                 /one/** = anon
 
                 /category = anon
+                /category/default = anon
+                /category/user = user
 
                 <!-- 登录页面不拦截 -->
 
+                /user/test  = anon
                 /user/login = anon
-
+                /user = anon
                 <!-- Shiro提供了退出登录的配置`logout`，会生成路径为`/logout`的请求地址，访问这个地址即会退出当前账户并清空缓存 -->
                 /userlogout = logout
 

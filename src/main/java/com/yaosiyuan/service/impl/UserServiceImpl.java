@@ -28,4 +28,11 @@ public class UserServiceImpl implements IUserService {
         return userMapper.findByName(username);
     }
 
+    @Override
+    public User findUserByEmail(String email) {
+        return userMapper.findUserByEmail(email);
+    }
+
+//    public
+
 }
