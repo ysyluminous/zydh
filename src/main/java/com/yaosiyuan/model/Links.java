@@ -1,6 +1,8 @@
 package com.yaosiyuan.model;
 
-public class Links {
+import java.io.Serializable;
+
+public class Links implements Serializable {
     private Integer id;
 
     private String linktitle;

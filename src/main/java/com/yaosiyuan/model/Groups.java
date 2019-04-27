@@ -1,8 +1,9 @@
 package com.yaosiyuan.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Groups {
+public class Groups implements Serializable {
     private Integer groupid;
 
     private String groupname;

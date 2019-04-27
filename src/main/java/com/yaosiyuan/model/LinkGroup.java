@@ -1,6 +1,8 @@
 package com.yaosiyuan.model;
 
-public class LinkGroup {
+import java.io.Serializable;
+
+public class LinkGroup implements Serializable {
     private Integer groupid;
 
     private String groupname;
