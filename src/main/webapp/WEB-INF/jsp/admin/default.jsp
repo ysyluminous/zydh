@@ -48,7 +48,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="/plugins/jbox/Demo/Playground/Playground.Login.css">
 
     <script type="text/javascript">
+        $(function () {
 
+            $("#loginBut").click(function () {
+                alert("111");
+                console.log('hello');
+            });
+
+        });
 
 
     </script>
@@ -113,6 +120,31 @@ desired effect
 <%--
                 <c:choose>
                 <c:when test="${categories == null || categories==''}">--%>
+                    <li><a href="/category/default?cat=${categorie.id}"><i class="fa fa-link"></i>
+                        <span>${categorie.name}</span></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <%--
                 </c:when>
                 </c:choose>--%>
@@ -128,11 +160,6 @@ desired effect
                     </c:if>
 
                 </c:forEach>
-                <li><a href="javascript:addCartModel();">
-
-
-                    <i class="fa fa-link"></i>
-                    <span>添加类别<button style="display:none" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addCat">开始演示模态框</button></span></a></li>
 
 
                 <%--<li class="treeview">--%>
@@ -184,7 +211,7 @@ desired effect
               -------------------------->
             <div>
 
-                <div class="modal fade" id="addCartModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal fade" id="addCat" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -196,26 +223,26 @@ desired effect
                                 </h4>
                             </div>
                             <div class="modal-body">
-                                <form action="/" method="post" name="addCartForm">
-                                    <div class="form-group">
-                                        <label for="inputEmail3" class="col-sm-2 control-label">用户id</label>
-                                        <div class="col-sm-10">
-                                            <input type="text"  class="form-control" id="userId" name="userId" value="${user.id}" placeholder="用户id">
-                                        </div>
-
-                                    </div>
+                                <form action="/link/add" method="post">
 
 
                                     <div class="form-group">
-                                        <label for="inputEmail3" class="col-sm-2 control-label">类别名称</label>
+                                        <label for="inputEmail3" class="col-sm-2 control-label">链接名称</label>
 
                                         <div class="col-sm-10">
-                                            <input type="text"  class="form-control" id="name" name="name" value="" placeholder="类别名称">
+
+                                            <input type="email"  class="form-control" id="userEmail" name="userId" value="${user.id}" placeholder="用户id">
+                                        </div>
+
+                                        <div class="col-sm-10">
+
+                                            <input type="email"  class="form-control" id="name" name="name" value="" placeholder="类别名称">
                                         </div>
                                     </div>
+
                                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭
                                     </button>
-                                    <button type="button" class="btn btn-primary" id="loginBut" onclick="addCart(this)">
+                                    <button type="button" class="btn btn-primary" id="loginBut" onclick="submit(this)">
                                         提交更改
                                     </button>
                                 </form>
@@ -313,7 +340,7 @@ desired effect
                                         </c:forEach>
 
 
-                                        <button type="button"  class="btn btn-sm " data-toggle="modal" data-target="#myModal_${subGroup.groupid}"><i class="fa fa-plus"></i>添加链接</button>
+                                        <button type="button"  class="btn btn-sm " data-toggle="modal" data-target="#myModal_${subGroup.groupid}"><i class="fa fa-plus"></i>添111加链接</button>
                                         <!-- 模态框（Modal） -->
                                             <div>
 
@@ -538,89 +565,10 @@ desired effect
 
 <script type="text/javascript">
 
-    /*
-    * 添加类别
-    *
-    * */
-
-    addCartModel= function(){
-        alert("1111");
-        $('#addCartModel').modal('toggle')
-    }
-
-    addCart = function(obj){
-       // var  userId = obj.parent.userId.value();
-        // var name = obj.parent.name.value();
-        // var name =  addCartForm.name.value();
-        // var userId =  addCartForm.userId.value();
-        var name = document.getElementById("name").value;
-        var userId = document.getElementById("userId").value;
-
-        addCatAjax(name,userId)
-    }
-
-
-
-    addCatAjax = function (name,userId){
-        alert("进入复函数");
-        $.ajax({
-            url : '/category/add',
-            type : 'post',
-            async: true,//使用同步的方式,true为异步方式
-            data : {'name':name, 'userId':userId},//这里使用json对象
-            contentType: 'application/x-www-form-urlencoded; charset=UTF-8',//防止乱码
-            success : function(data){
-                alert("成功啦");
-                $('#addCartModel').modal('toggle');
-//code here...
-            },
-            fail:function(){
-                alert("。。。。。。。");
-//code here...
-            }
-        });
-
-
-
-
-
-
-        // var xhr=createXHR();
-        // alert(name+userId);
-        // xhr.onreadystatechange=function()
-        // {
-        //     if(xhr.readyState==4)
-        //     {
-        //         if(xhr.status>=200&&xhr.status<300||xhr.status==304)
-        //         {
-        //             alert("删除了")
-        //             window.location.reload();
-        //             //alert(xhr.responseText);
-        //             // doDeleteSuccess(id);
-        //         }
-        //     }
-        // }
-        //
-        // encodeURI(name)
-        // xhr.open("get","/category/add?name="+encodeURI(name)+"&userId="+encodeURI(userId),true);
-        // xhr.send(null);
-    }
-
-
-
-
-
-
-
     function submit(obj){
         alert("thsi");
         obj.parent.sumbit();
     }
-
-
-
-
-
 
 //    dialog = function () {
 //        alert("添加了")
@@ -657,7 +605,6 @@ desired effect
         xhr.open("get","/createLink?id="+id,true);
         xhr.send(null);
     }
-
 
 
 
@@ -702,7 +649,6 @@ desired effect
                 }
             }
         }
-
         xhr.open("get","/link/delete?id="+id,true);
         xhr.send(null);
     }

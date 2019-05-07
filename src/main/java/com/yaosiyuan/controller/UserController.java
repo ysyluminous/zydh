@@ -88,4 +88,11 @@ public class UserController {
         request.getSession().setAttribute("user", user);
         return "redirect:/user";
     }
+
+
+
+    @RequestMapping(value = "/alter", method = RequestMethod.GET)
+    public String admin(HttpServletRequest request, Model model) {
+        return "/admin/alter";
+    }
 }

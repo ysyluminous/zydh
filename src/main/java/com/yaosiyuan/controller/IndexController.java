@@ -3,6 +3,7 @@ package com.yaosiyuan.controller;
 import com.yaosiyuan.model.User;
 import com.yaosiyuan.service.IGroupService;
 import com.yaosiyuan.service.ILinkService;
+import com.yaosiyuan.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,21 +31,47 @@ public class IndexController {
     @Autowired
     IGroupService groupService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String test(HttpServletRequest request, Model model, HttpSession session) {
-        String logUserEmail = (String) request.getSession().getAttribute("logUserEmail");
-        User user = (User) request.getSession().getAttribute("user");
+    @Autowired
+    IUserService userService;
 
-        if (user == null || "".equals(user)) {
-            //如果没有登陆使用默认账号
-            return "redirect:/category/default";
-        }
+        @RequestMapping(value = "/", method = RequestMethod.GET)
+        public String test(HttpServletRequest request, Model model, HttpSession session) {
+            String logUserEmail = (String) request.getSession().getAttribute("logUserEmail");
 
+            if (logUserEmail == null || "".equals(logUserEmail)) {
+                //如果没有登陆使用默认账号
+                return "redirect:/category/default";
+            }
+
+
+            User userByEmail = userService.findUserByEmail(logUserEmail);
+            request.getSession().setAttribute("user",userByEmail);
+
+            User user = (User) request.getSession().getAttribute("user");
 
 
 //        model.addAttribute("logUserEmail", logUserEmail);
         return "redirect:/category/user";
     }
+
+
+
+    @RequestMapping(value = "/toUser", method = RequestMethod.GET)
+    public String toUser(HttpServletRequest request, Model model, HttpSession session) {
+        String logUserEmail = (String) request.getSession().getAttribute("logUserEmail");
+
+        if (logUserEmail == null || "".equals(logUserEmail)) {
+            //如果没有登陆使用默认账号
+            return "redirect:/category/default";
+        }
+        User user = (User) request.getSession().getAttribute("user");
+
+
+//        model.addAttribute("logUserEmail", logUserEmail);
+        return "redirect:/category/user";
+    }
+
+
 
 
 }

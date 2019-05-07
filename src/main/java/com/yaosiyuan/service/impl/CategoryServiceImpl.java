@@ -29,4 +29,9 @@ public class CategoryServiceImpl  implements ICategorySerivce {
     public List<Category> findCategoryByEmail(String email) {
         return categoryMapper.findCategoryByEmail(email);
     }
+
+    @Override
+    public int insert(Category record) {
+        return categoryMapper.insert(record);
+    }
 }

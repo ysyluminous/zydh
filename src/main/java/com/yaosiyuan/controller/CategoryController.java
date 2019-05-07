@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 /**
@@ -46,6 +47,22 @@ public class CategoryController {
 
     @Autowired
     IUserService userService;
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public String add(HttpServletRequest request, Model model, ModelAndView modelAndView, int userId,String name ) throws UnsupportedEncodingException {
+        request.setCharacterEncoding("UTF-8");//防止乱码
+        String ogName = request.getParameter(name);
+//        String decodeName = URLDecoder.decode(ogName, "UTF-8");
+        Category category = new Category();
+        category.setName(name);
+        category.setUserid(userId);
+        categorySerivce.insert(category);
+
+
+        return "redirect:/";
+    }
+
+
 
 
     /**

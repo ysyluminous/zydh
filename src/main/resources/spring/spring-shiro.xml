@@ -31,6 +31,7 @@
                 /bower_components/** = anon
                 /dist/** = anon
                 /one/** = anon
+                /plugins/** = anon
 
                 /category = anon
                 /category/default = anon
@@ -45,6 +46,8 @@
                 <!-- Shiro提供了退出登录的配置`logout`，会生成路径为`/logout`的请求地址，访问这个地址即会退出当前账户并清空缓存 -->
                 /user/logout = logout
 
+                /link/** = user
+                /deleteLink = user
                 <!-- user表示身份通过或通过记住我通过的用户都能访问系统 -->
                 <!--/index.jsp = user-->
 
