@@ -19,4 +19,9 @@ public interface IGroupService {
 
     List<Groups> selectParentGroupsByCat(Integer cat);
 
+    int insert(Groups record);
+
+
+    int deleteByPrimaryKey(Integer groupid);
+
 }

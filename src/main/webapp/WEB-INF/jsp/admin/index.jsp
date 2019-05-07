@@ -25,15 +25,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
           apply the skin class to the body tag so the changes take effect. -->
     <link rel="stylesheet" href="/dist/css/skins/skin-blue.min.css">
 
-
-    <%--<link rel="stylesheet" type="text/css" href="/plugins/ysydialog/css/normalize.css" />--%>
-    <%--<link rel="stylesheet" type="text/css" href="/plugins/ysydialog/css/zzsc-demo.css">--%>
-    <%--<link rel="stylesheet" href="/plugins/ysydialog/css/style.css">--%>
-    <link rel="stylesheet" href="/plugins/ysydialog/css/x0popup.min.css">
-    <%--<link rel="stylesheet" href="/plugins/ysydialog/css/rainbow.monokai.css">--%>
-
-
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -41,13 +32,145 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <![endif]-->
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
+    <!-- AdminLTE App -->
+    <script src="/dist/js/adminlte.min.js"></script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
 
     <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/plugins/jbox/Source/jBox.css">
 
     <link rel="stylesheet" href="/plugins/jbox/Demo/Playground/Playground.Login.css">
 
+
+
+    <script src="/plugins/layer/layer.js"></script>
+
     <script type="text/javascript">
+
+        /*删除父分组
+        * */
+
+        $(function () {
+            $("#removePartGroup").click(function () {
+                removePartGroup();
+            });
+        });
+
+        removePartGroup = function(groupid){
+            //确定组id
+            alert(groupid);
+
+            //ajax调用
+            removePartGroupAjax(groupid);
+
+        }
+        removePartGroupAjax = function (groupid){
+
+
+            alert("进入复函数");
+            $.ajax({
+                url : '/group/del',
+                type : 'post',
+                async: true,//使用同步的方式,true为异步方式
+                data : {'groupId':groupid},//这里使用json对象
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',//防止乱码
+                success : function(data){
+
+
+
+                    //模态框移除
+                    $('#remove-group_'+groupid).modal('toggle');
+
+                    //移除掉页面父组
+                    $('#parentGroup_'+groupid).boxWidget('remove');
+                    // window.location.reload();
+                    layer.open({
+                        title:"信息",
+                        time:5000,
+                        content:data.msg
+                    });
+//code here...
+                },
+                fail:function(){
+
+                    layer.open({
+                        title:"信息",
+                        content:data.msg
+                    });
+//code here...
+                }
+            });
+        }
+
+
+
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
+            var context = "";
+            if (r != null)
+                context = r[2];
+            reg = null;
+            r = null;
+            return context == null || context == "" || context == "undefined" ? "" : context;
+        }
+        // alert(GetQueryString("j"));
+
+
+        $(function () {
+            $("#addParentGroupButton").click(function () {
+                addParentGroup();
+            });
+        });
+
+
+
+        /*
+        * 添加分组
+        * */
+        addParentGroup = function(obj){
+            // var  userId = obj.parent.userId.value();
+            // var name = obj.parent.name.value();
+            // var name =  addCartForm.name.value();
+            // var userId =  addCartForm.userId.value();
+            var parentGroupName = document.getElementById("parentGroupName").value;
+            var userId = document.getElementById("userId").value;
+
+            // alert(parentGroupName);
+            alert(GetQueryString("cat"));
+
+            var catId=GetQueryString("cat");
+
+            addGroupAjax(parentGroupName,catId)
+        }
+
+
+
+        addGroupAjax = function (parentGroupName,catId){
+
+
+            alert("进入复函数");
+            $.ajax({
+                url : '/group/add',
+                type : 'post',
+                async: true,//使用同步的方式,true为异步方式
+                data : {'groupName':parentGroupName, 'catId':catId},//这里使用json对象
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',//防止乱码
+                success : function(data){
+                    alert("成功啦");
+
+                    $('#addGroup').modal('toggle');
+                    window.location.reload();
+//code here...
+                },
+                fail:function(){
+                    alert("。。。。。。。");
+//code here...
+                }
+            });
+        }
 
 
 
@@ -128,24 +251,14 @@ desired effect
                     </c:if>
 
                 </c:forEach>
-                <li><a href="javascript:addCartModel();">
 
+
+                <%--添加类别start--%>
+                <li><a href="javascript:addCartModel();"><i class="fa fa-link"></i>
+                    <span>添加类别</span></a></li>
+                <%--添加类别end--%>
 
                     <i class="fa fa-link"></i>
-                    <span>添加类别<button style="display:none" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addCat">开始演示模态框</button></span></a></li>
-
-
-                <%--<li class="treeview">--%>
-                <%--<a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>--%>
-                <%--<span class="pull-right-container">--%>
-                <%--<i class="fa fa-angle-left pull-right"></i>--%>
-                <%--</span>--%>
-                <%--</a>--%>
-                <%--<ul class="treeview-menu">--%>
-                <%--<li><a href="#">Link in level 2</a></li>--%>
-                <%--<li><a href="#">Link in level 2</a></li>--%>
-                <%--</ul>--%>
-                <%--</li>--%>
             </ul>
             <!-- /.sidebar-menu -->
         </section>
@@ -229,19 +342,8 @@ desired effect
             </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
             <c:forEach items="${groups}" var="group">
-                <div class="box box-default">
+                <div class="box box-default" id="parentGroup_${group.groupid}">
                     <div class="box-header with-border">
                         <h3 class="box-title">${group.groupname}</h3>
                         <div class="box-tools pull-right">
@@ -249,24 +351,37 @@ desired effect
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
 
                             </button>
                             <span class="label label-primary"></span>
+                            <button type="button" class="btn btn-box-tool"  data-toggle="modal" data-target="#remove-group_${group.groupid}"><i class="fa fa-times"></i></button>
+
+
+
+
+                            <div class="modal modal-danger fade" id="remove-group_${group.groupid}">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title">确定确定要删除该分组吗？？？</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            大人！！三思啊！！
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">让我再想想。。</button>
+                                            <button type="button" class="btn btn-outline" onclick="removePartGroup(${group.groupid})" id="removePartGroup1">朕决定了</button>
+
+                                        </div>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
+                            <!-- /.modal -->
                         </div><!-- /.box-tools -->
                     </div>
                     <!-- /.box-header -->
@@ -298,95 +413,109 @@ desired effect
                                 <c:forEach items="${group.subGroup}" var="subGroup" varStatus="str">
                                     <div class="tab-pane" id="tab_${str.count}">
                                         <c:forEach items="${subGroup.links}" var="link">
-                                                <dd class="col-sm-3 col-md-2 col-xs-3">
-                                                    <a href="${link.linkurl}" target="_blank"><i
-                                                            class="link-logo"></i><span
-                                                            class="link-title">${link.linktitle}</span></a><span
-                                                        class="sub-link"><span class="link-info">${link.linkinfo}</span>
-                                                            <div class="tools">
-                                                              <i class="fa fa-edit"  onclick="alter(${link.id})"></i>
-                                                            <%--<i class="fa fa-edit" id="delete${link.id}" onclick="del(${link.id})"></i>--%>
-                                                            <i class="fa fa-trash-o" onclick="del('${link.id}')"></i>
-
-                                                            </div>
-                                                </dd>
+                                            <dd class="col-sm-3 col-md-2 col-xs-3">
+                                                <a href="${link.linkurl}" target="_blank">
+                                                    <i class="link-logo">
+                                                    </i>
+                                                    <span class="link-title">
+                                                            ${link.linktitle}
+                                                    </span>
+                                                </a>
+                                                <span class="sub-link">
+                        <span class="link-info">
+                                ${link.linkinfo}
+                        </span>
+                        <div class="tools">
+                            <i class="fa fa-edit" onclick="alter(${link.id})">
+                            </i>
+                            <%--<i class="fa fa-edit" id="delete${link.id}" onclick="del(${link.id})">
+                                </i>
+                                --%>
+                                <i class="fa fa-trash-o" onclick="del('${link.id}')">
+                                </i>
+                        </div>
+                                            </dd>
                                         </c:forEach>
-
-
-                                        <button type="button"  class="btn btn-sm " data-toggle="modal" data-target="#myModal_${subGroup.groupid}"><i class="fa fa-plus"></i>添加链接</button>
+                                        <button type="button" class="btn btn-sm " data-toggle="modal" data-target="#myModal_${subGroup.groupid}">
+                                            <i class="fa fa-plus">
+                                            </i>
+                                            添加链接
+                                        </button>
                                         <!-- 模态框（Modal） -->
-                                            <div>
-
-                                               <div class="modal fade" id="myModal_${subGroup.groupid}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                                                    &times;
+                                        <div>
+                                            <div class="modal fade" id="myModal_${subGroup.groupid}" tabindex="-1"
+                                                 role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                                &times;
+                                                            </button>
+                                                            <h4 class="modal-title" id="myModalLabel">
+                                                                添加
+                                                            </h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form action="/link/add" method="post">
+                                                                <div class="form-group">
+                                                                    <label for="inputEmail3" class="col-sm-2 control-label">
+                                                                        链接名称
+                                                                    </label>
+                                                                    <div class="col-sm-10">
+                                                                        <input type="email" class="form-control" id="subGroupId" name="groupid"
+                                                                               value="${subGroup.groupid}" placeholder="链接名称">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="inputEmail3" class="col-sm-2 control-label">
+                                                                        链接名称
+                                                                    </label>
+                                                                    <div class="col-sm-10">
+                                                                        <input type="email" class="form-control" id="inputEmail3" name="linktitle"
+                                                                               placeholder="链接名称">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="inputEmail3" class="col-sm-2 control-label">
+                                                                        链接信息
+                                                                    </label>
+                                                                    <div class="col-sm-10">
+                                                                        <input type="text" class="form-control" id="text" name="linkinfo" placeholder="链接信息">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="inputEmail3" class="col-sm-2 control-label">
+                                                                        链接地址
+                                                                    </label>
+                                                                    <div class="col-sm-10">
+                                                                        <input type="text" class="form-control" id="linkUrl" name="linkurl" placeholder="链接地址">
+                                                                    </div>
+                                                                </div>
+                                                                <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                                    关闭
                                                                 </button>
-                                                                <h4 class="modal-title" id="myModalLabel">
-                                                                    添加
-                                                                </h4>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <form action="/link/add" method="post">
-
-
-                                                                    <div class="form-group">
-                                                                        <label for="inputEmail3" class="col-sm-2 control-label">链接名称</label>
-
-                                                                        <div class="col-sm-10">
-
-                                                                            <input type="email"  class="form-control" id="subGroupId" name="groupid" value="${subGroup.groupid}" placeholder="链接名称">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label for="inputEmail3" class="col-sm-2 control-label">链接名称</label>
-
-                                                                        <div class="col-sm-10">
-
-                                                                            <input type="email" class="form-control" id="inputEmail3" name="linktitle" placeholder="链接名称">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label for="inputEmail3" class="col-sm-2 control-label">链接信息</label>
-
-                                                                        <div class="col-sm-10">
-                                                                            <input type="text" class="form-control" id="text"  name="linkinfo" placeholder="链接信息">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label for="inputEmail3" class="col-sm-2 control-label">链接地址</label>
-
-                                                                        <div class="col-sm-10">
-                                                                            <input type="text" class="form-control" id="linkUrl"   name="linkurl" placeholder="链接地址">
-                                                                        </div>
-                                                                    </div>
-                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-primary" id="loginBut" onclick="submit(this)">
-                                                                        提交更改
-                                                                    </button>
-                                                                </form>
-                                                            </div>
-                                                            <div class="modal-footer">
-
-                                                            </div>
-                                                        </div><!-- /.modal-content -->
-                                                    </div><!-- /.modal -->
+                                                                <button type="button" class="btn btn-primary" id="loginBut" onclick="submit(this)">
+                                                                    提交更改
+                                                                </button>
+                                                            </form>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.modal-content -->
                                                 </div>
+                                                <!-- /.modal -->
                                             </div>
                                         </div>
+                                            <%--静态框end--%>
+                                    </div>
+
                                 </c:forEach>
-
-
-
-
-
 
 
                                 <!-- /.tab-pane -->
                             </div>
+
                             <!-- /.tab-content -->
                         </div>
                         <dl class="row">
@@ -427,6 +556,37 @@ desired effect
                     </div>
                 </div>
             </c:forEach>
+            <button type="button" class="btn btn-default btn-block btn-sm" data-toggle="modal" data-target="#addParentGroup">添加分组</button>
+            <div class="modal fade" id="addParentGroup">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">添加分组</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/link/add" method="post">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">
+                                            分组名：
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control" id="parentGroupName" name="groupName"
+                                               value="" placeholder="父分组名">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="addParentGroupButton">Save changes</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
 
         </section>
         <!-- /.content -->
@@ -527,21 +687,22 @@ desired effect
 
 <!-- jQuery 3 -->
 
-<!-- AdminLTE App -->
-<script src="/dist/js/adminlte.min.js"></script>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<script src="/plugins/jbox/Source/jBox.js"></script>
-
-<script src="/plugins/jbox/Demo/Playground/Playground.Login.js"></script>
 
 
 <script type="text/javascript">
+  /*  $(function () {
+        $("#addParentGroup").click(function () {
+            alert("111");
+            console.log('hello');
+        });
+    });
+*/
 
-    /*
-    * 添加类别
-    *
-    * */
+
+        /*
+        * 添加类别
+        *
+        * */
 
     addCartModel= function(){
         alert("1111");
@@ -572,6 +733,7 @@ desired effect
             success : function(data){
                 alert("成功啦");
                 $('#addCartModel').modal('toggle');
+                window.location.reload();
 //code here...
             },
             fail:function(){

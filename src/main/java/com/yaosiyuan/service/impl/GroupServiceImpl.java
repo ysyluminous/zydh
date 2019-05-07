@@ -35,4 +35,14 @@ public class GroupServiceImpl implements IGroupService {
     public List<Groups> selectParentGroupsByCat(Integer cat) {
         return groupsMapper.selectParentGroupsByCat(cat);
     }
+
+    @Override
+    public int insert(Groups record) {
+        return groupsMapper.insert(record);
+    }
+
+    @Override
+    public int deleteByPrimaryKey(Integer groupid) {
+        return groupsMapper.deleteByPrimaryKey(groupid);
+    }
 }

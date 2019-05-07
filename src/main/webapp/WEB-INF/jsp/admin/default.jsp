@@ -125,26 +125,6 @@ desired effect
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <%--
                 </c:when>
                 </c:choose>--%>
@@ -330,12 +310,7 @@ desired effect
                                                             class="link-logo"></i><span
                                                             class="link-title">${link.linktitle}</span></a><span
                                                         class="sub-link"><span class="link-info">${link.linkinfo}</span>
-                                                            <div class="tools">
-                                                              <i class="fa fa-edit"  onclick="alter(${link.id})"></i>
-                                                            <%--<i class="fa fa-edit" id="delete${link.id}" onclick="del(${link.id})"></i>--%>
-                                                            <i class="fa fa-trash-o" onclick="del('${link.id}')"></i>
 
-                                                            </div>
                                                 </dd>
                                         </c:forEach>
 
@@ -439,12 +414,7 @@ desired effect
                                                 class="link-logo"></i><span
                                                 class="link-title">${link.linktitle}</span></a><span
                                             class="sub-link"><span class="link-info">${link.linkinfo}</span>
-                                        <div class="tools">
-                                          <i class="fa fa-edit"  onclick="alter(${link.id})"></i>
-                                        <%--<i class="fa fa-edit" id="delete${link.id}" onclick="del(${link.id})"></i>--%>
-                                        <i class="fa fa-trash-o" onclick="del('${link.id}')"></i>
 
-                                      </div>
                                     </dd>
                                 </c:forEach>
                             </dl>

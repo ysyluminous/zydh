@@ -113,7 +113,7 @@ public class CategoryController {
 //            group.setLinks(links);
             }
             model.addAttribute("groups", selectParentGroupsByCat);
-            return "admin/index";
+            return "admin/default";
         }
         //通过获取url上的id值
         Integer cat = Integer.valueOf(fCat);

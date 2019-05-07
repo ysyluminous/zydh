@@ -47,6 +47,7 @@
                 /user/logout = logout
 
                 /link/** = user
+                /group/** = user
                 /deleteLink = user
                 <!-- user表示身份通过或通过记住我通过的用户都能访问系统 -->
                 <!--/index.jsp = user-->
