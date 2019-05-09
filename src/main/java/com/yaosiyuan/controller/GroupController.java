@@ -1,5 +1,7 @@
 package com.yaosiyuan.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.yaosiyuan.model.Groups;
 import com.yaosiyuan.service.IGroupService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,46 @@ public class GroupController {
 
     @Autowired
     IGroupService groupService;
+
+    /**
+     * @Author YaoSiyuan
+     * @Description //TODO
+     * @Date 0:14 2019/5/8
+     * @Param [request, model, modelAndView, catId, groupName]
+     * @return java.lang.String
+     **/
+    @RequestMapping(value = "/addSubGroup", method = RequestMethod.POST)
+    public String addSubGroup(HttpServletRequest request, HttpServletResponse response, Model model, ModelAndView modelAndView, int parentId,String groupName,int catId) throws IOException {
+        request.setCharacterEncoding("UTF-8");//防止乱码
+        Groups groups = new Groups();
+
+        groups.setGroupname(groupName);
+        groups.setCatid(catId);
+        groups.setParentid(parentId);
+        int i = groupService.insert(groups);
+        HashMap<String, Object> map = new HashMap<>();
+
+        if (i>0){
+            map.put("success",true);
+            map.put("msg",i);
+        }else {
+            map.put("success",false);
+            map.put("msg","添加成功");
+        }
+        response.setContentType("text/html;charset=utf-8");
+
+        JSONObject jsonObject = JSON.parseObject(JSON.toJSONString(map));
+        PrintWriter out = response.getWriter();
+        //返回信息
+        out.print(jsonObject);
+        out.flush();
+        out.close();
+
+        return "redirect:/";
+    }
+
+
+
 
 
     /**
@@ -65,7 +107,7 @@ public class GroupController {
         request.setCharacterEncoding("UTF-8");//防止乱码
 
         int i = groupService.deleteByPrimaryKey(groupId);
-            HashMap<Object, Object> map = new HashMap<>();
+        HashMap<String, Object> map = new HashMap<>();
 
         if (i>0){
             //删除成功
@@ -76,8 +118,11 @@ public class GroupController {
             map.put("msg","删除错误");
         }
         response.setContentType("text/html;charset=utf-8");
+
+        JSONObject jsonObject = JSON.parseObject(JSON.toJSONString(map));
         PrintWriter out = response.getWriter();
-        out.print(map);//返回信息
+        //返回信息
+        out.print(jsonObject);
         out.flush();
         out.close();
 

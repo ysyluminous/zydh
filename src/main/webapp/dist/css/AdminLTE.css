@@ -2551,8 +2551,9 @@ a:focus {
 .nav-tabs-custom > .tab-content {
   background: #fff;
   padding: 10px;
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
+  /*todo*/
+/*  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;*/
 }
 .nav-tabs-custom .dropdown.open > a:active,
 .nav-tabs-custom .dropdown.open > a:focus {

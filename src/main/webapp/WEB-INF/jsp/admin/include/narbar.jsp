@@ -98,6 +98,9 @@
                                 <c:otherwise>
                                     <!-- 顶部已登录 -->
                                     <div class="pull-right">
+                                        <a href="javascript:managePage();" class="btn btn-default btn-flat">管理</a>
+                                    </div>
+                                    <div class="pull-right">
                                         <a href="/user/logout" class="btn btn-default btn-flat">退出</a>
                                     </div>
                                     <div class="pull-left">

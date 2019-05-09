@@ -31,7 +31,17 @@ public class CategoryServiceImpl  implements ICategorySerivce {
     }
 
     @Override
+    public int deleteByPrimaryKey(Integer id) {
+        return categoryMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
     public int insert(Category record) {
         return categoryMapper.insert(record);
+    }
+
+    @Override
+    public int updateByPrimaryKey(Category record) {
+        return categoryMapper.updateByPrimaryKey(record);
     }
 }

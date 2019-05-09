@@ -1,5 +1,7 @@
 package com.yaosiyuan.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.yaosiyuan.model.Category;
 import com.yaosiyuan.model.Groups;
 import com.yaosiyuan.model.Links;
@@ -17,8 +19,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -48,6 +54,42 @@ public class CategoryController {
     @Autowired
     IUserService userService;
 
+    @RequestMapping(value = "/alt", method = RequestMethod.POST)
+    public String alt(HttpServletRequest request, HttpServletResponse response,Model model, ModelAndView modelAndView, int id,String name ,int userid) throws IOException {
+        request.setCharacterEncoding("UTF-8");//防止乱码
+        Category category = new Category();
+        category.setId(id);
+        category.setUserid(userid);
+        category.setName(name);
+        int i = categorySerivce.updateByPrimaryKey(category);
+
+        HashMap<String, Object> map = new HashMap<>();
+
+        if (i>0){
+            //删除成功
+            map.put("success",true);
+            map.put("msg",i);
+        }else {
+            map.put("success",false);
+            map.put("msg","更新错误");
+        }
+        response.setContentType("text/html;charset=utf-8");
+
+        JSONObject jsonObject = JSON.parseObject(JSON.toJSONString(map));
+        PrintWriter out = response.getWriter();
+        //返回信息
+        out.print(jsonObject);
+        out.flush();
+        out.close();
+
+
+        return "redirect:/";
+    }
+
+
+
+
+
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String add(HttpServletRequest request, Model model, ModelAndView modelAndView, int userId,String name ) throws UnsupportedEncodingException {
         request.setCharacterEncoding("UTF-8");//防止乱码
@@ -62,9 +104,33 @@ public class CategoryController {
         return "redirect:/";
     }
 
+    @RequestMapping(value = "/del", method = RequestMethod.POST)
+    public String del(HttpServletRequest request, HttpServletResponse response,Model model, ModelAndView modelAndView, int id  ) throws IOException {
+        request.setCharacterEncoding("UTF-8");//防止乱码
+        int i = categorySerivce.deleteByPrimaryKey(id);
+
+        HashMap<String, Object> map = new HashMap<>();
+
+        if (i>0){
+            //删除成功
+            map.put("success",true);
+            map.put("msg",i);
+        }else {
+            map.put("success",false);
+            map.put("msg","删除错误");
+        }
+        response.setContentType("text/html;charset=utf-8");
+
+        JSONObject jsonObject = JSON.parseObject(JSON.toJSONString(map));
+        PrintWriter out = response.getWriter();
+        //返回信息
+        out.print(jsonObject);
+        out.flush();
+        out.close();
 
 
-
+        return "redirect:/";
+    }
     /**
      * @return java.lang.String
      * @Author YaoSiyuan
