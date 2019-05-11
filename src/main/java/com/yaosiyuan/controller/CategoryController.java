@@ -231,7 +231,6 @@ public class CategoryController {
         //判断有没有传值
         String fCat = request.getParameter("cat");
         if (fCat == null || fCat.length() <= 0) {
-
             Category category = categories.get(0);
             Integer categoryId = category.getId();
             //通过父类别查询所有group

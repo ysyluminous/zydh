@@ -1,5 +1,7 @@
 package com.yaosiyuan.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.yaosiyuan.model.User;
 import com.yaosiyuan.service.IUserService;
 import org.apache.shiro.SecurityUtils;
@@ -11,8 +13,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.HashMap;
 
 /**
  * @ClassName UserController
@@ -27,6 +34,42 @@ public class UserController {
 
     @Autowired
     private IUserService userService = null;
+
+
+    /**
+     * @Author YaoSiyuan
+     * @Description //TODO
+     * @Date 0:14 2019/5/8
+     * @Param [request, model, modelAndView, catId, groupName]
+     * @return java.lang.String
+     **/
+    @RequestMapping(value = "/chechEmailExist", method = RequestMethod.POST)
+    public String del(HttpServletRequest request, HttpServletResponse response, Model model, ModelAndView modelAndView, String userEml) throws IOException {
+        request.setCharacterEncoding("UTF-8");//防止乱码
+
+        HashMap<String, Object> map = new HashMap<>();
+        User userByEmail = userService.findUserByEmail(userEml);
+
+        if (userByEmail == null){
+            //删除成功
+            map.put("success",true);
+            map.put("msg","可用");
+        }else {
+            map.put("success",false);
+            map.put("msg","不可用");
+        }
+        response.setContentType("text/html;charset=utf-8");
+
+        JSONObject jsonObject = JSON.parseObject(JSON.toJSONString(map));
+        PrintWriter out = response.getWriter();
+        //返回信息
+        out.print(jsonObject);
+        out.flush();
+        out.close();
+
+        return "redirect:/";
+    }
+
 
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)

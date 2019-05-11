@@ -7,7 +7,7 @@
     <!-- Logo -->
     <a href="index2.html" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>A</b>LT</span>
+        <span class="logo-mini"><b></b>昭阳</span>
         <!-- logo for regular state and mobile devices -->
         <span class="logo-lg"><b>昭阳导航</b></span>
     </a>
@@ -27,7 +27,7 @@
                     <!-- Menu Toggle Button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <!-- The user image in the navbar-->
-                        <img src="/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                        <img src="${pageContext.request.contextPath }/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
                         <span class="hidden-xs">
 
@@ -51,7 +51,7 @@
                     <ul class="dropdown-menu">
                         <!-- The user image in the menu -->
                         <li class="user-header">
-                            <img src="/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                            <img src="${pageContext.request.contextPath }/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                             <p>
 
@@ -89,20 +89,21 @@
                                 <c:when test="${logUserEmail == null || logUserEmail==''}">
                                     <!-- 顶部未登录 -->
                                     <div class="pull-left">
-                                        <a href="/user" class="btn btn-default btn-flat">登录</a>
+                                        <a href="${pageContext.request.contextPath }/user" class="btn btn-default btn-flat">登录</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="/user/register" class="btn btn-default btn-flat">注册</a>
+                                        <a href="${pageContext.request.contextPath }/user/register" class="btn btn-default btn-flat">注册</a>
                                     </div>
                                 </c:when>
                                 <c:otherwise>
                                     <!-- 顶部已登录 -->
+                                    <div class="pull-left">
+                                        <a href="/user/logout" class="btn btn-default btn-flat">退出</a>
+                                    </div>
                                     <div class="pull-right">
                                         <a href="javascript:managePage();" class="btn btn-default btn-flat">管理</a>
                                     </div>
-                                    <div class="pull-right">
-                                        <a href="/user/logout" class="btn btn-default btn-flat">退出</a>
-                                    </div>
+
                                     <div class="pull-left">
                                         <a href="/category/default" class="btn btn-default btn-flat">默认</a>
                                     </div>

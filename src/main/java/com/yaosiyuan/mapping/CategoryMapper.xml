@@ -36,7 +36,7 @@
 	  c.userId
     FROM
 	  category c,
-	USER u
+	user u
     WHERE
 	  c.userId = u.id
     AND c.userId = #{email,jdbcType=INTEGER}

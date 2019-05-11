@@ -120,7 +120,7 @@ desired effect
 <%--
                 <c:choose>
                 <c:when test="${categories == null || categories==''}">--%>
-                    <li><a href="/category/default?cat=${categorie.id}"><i class="fa fa-link"></i>
+                    <li><a href="${pageContext.request.contextPath }/category/default?cat=${categorie.id}"><i class="fa fa-link"></i>
                         <span>${categorie.name}</span></a></li>
 
 
