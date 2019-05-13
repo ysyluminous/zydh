@@ -215,8 +215,7 @@ public class CategoryController {
 
 
     @RequestMapping(value = "/user", method = RequestMethod.GET)
-    public String user(HttpServletRequest request, Model model, ModelAndView modelAndView, @RequestParam(value = "logUserEmail", required = false) String logUserEmail) {
-
+    public String user(HttpServletRequest request, Model model, ModelAndView modelAndView){
         String logUserEmail1 = (String) request.getSession().getAttribute("logUserEmail");
         User userByEmail = userService.findUserByEmail(logUserEmail1);
         Integer id = userByEmail.getId();
@@ -231,6 +230,9 @@ public class CategoryController {
         //判断有没有传值
         String fCat = request.getParameter("cat");
         if (fCat == null || fCat.length() <= 0) {
+            if (categories.size()==0){
+                return "admin/index";
+            }
             Category category = categories.get(0);
             Integer categoryId = category.getId();
             //通过父类别查询所有group

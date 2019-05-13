@@ -37,6 +37,11 @@
                 /category/default = anon
                 /category/user = user
 
+                /company/** = anon
+
+
+
+
                 <!-- 登录页面不拦截 -->
                 / = anon
                 /user/chechEmailExist = anon

@@ -113,13 +113,31 @@ desired effect
             <%--</li>--%>
             <%--</ul>--%>
 
+
             <ul class="sidebar-menu" data-widget="tree">
-                <li class="header">HEADER</li>
+
+
+
+                <li class="header " >应届生避坑</li>
+                <li class="treeview menu-open">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                        <span class="pull-right-container">
+                          <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu" style="display: block;">
+                        <li><a href="/company/list"><i class="fa fa-circle-o"></i>培训公司黑名单</a></li>
+                    </ul>
+                </li>
+
                 <!-- Optionally, you can add icons to the links -->
                 <%--<li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>--%>
 <%--
                 <c:choose>
                 <c:when test="${categories == null || categories==''}">--%>
+
+                <li class="header">HEADER</li>
                     <li><a href="${pageContext.request.contextPath }/category/default?cat=${categorie.id}"><i class="fa fa-link"></i>
                         <span>${categorie.name}</span></a></li>
 

@@ -506,7 +506,25 @@ desired effect
             --%>
                 <%-- --%>
 
+                <li class="header " >应届生避坑</li>
+                <li class="treeview menu-open">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                        <span class="pull-right-container">
+                          <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu" style="display: block;">
+                        <li><a href="/company"><i class="fa fa-circle-o"></i>培训公司黑名单</a></li>
+                        <li><a href="/company/add"><i class="fa fa-circle-o"></i>添加</a></li>
+                    </ul>
+                </li>
+
+
+
+
                     <li class="header stand " >类别列表</li>
+
 
                     <c:forEach items="${categories}" var="categorie">
                         <c:if test="${isLogin=='default'}">

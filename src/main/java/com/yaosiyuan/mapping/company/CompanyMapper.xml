@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yaosiyuan.dao.company.CompanyMapper">
+  <resultMap id="BaseResultMap" type="com.yaosiyuan.model.company.Company">
+    <result column="company_id" jdbcType="INTEGER" property="companyId" />
+    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+    <result column="company_address" jdbcType="VARCHAR" property="companyAddress" />
+    <result column="company_url" jdbcType="VARCHAR" property="companyUrl" />
+    <result column="company_source" jdbcType="VARCHAR" property="companySource" />
+    <result column="company_hot" jdbcType="INTEGER" property="companyHot" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    company_id, company_name, company_address,company_url,company_source,company_hot
+     </sql>
+ #todo
+  <select id="findCompanyByName" parameterType="java.lang.String" resultType="com.yaosiyuan.model.company.Company">
+    select
+    <include refid="Base_Column_List"/>
+    from t_company
+    where company_name =
+
+  </select>
+
+  <insert id="insert" parameterType="com.yaosiyuan.model.company.Company">
+    insert into t_company (company_id, company_name, company_address, 
+      company_url, company_source, company_hot
+      )
+    values (#{companyId,jdbcType=INTEGER}, #{companyName,jdbcType=VARCHAR}, #{companyAddress,jdbcType=VARCHAR}, 
+      #{companyUrl,jdbcType=VARCHAR}, #{companySource,jdbcType=VARCHAR}, #{companyHot,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yaosiyuan.model.company.Company">
+    insert into t_company
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="companyId != null">
+        company_id,
+      </if>
+      <if test="companyName != null">
+        company_name,
+      </if>
+      <if test="companyAddress != null">
+        company_address,
+      </if>
+      <if test="companyUrl != null">
+        company_url,
+      </if>
+      <if test="companySource != null">
+        company_source,
+      </if>
+      <if test="companyHot != null">
+        company_hot,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="companyId != null">
+        #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyAddress != null">
+        #{companyAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="companyUrl != null">
+        #{companyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="companySource != null">
+        #{companySource,jdbcType=VARCHAR},
+      </if>
+      <if test="companyHot != null">
+        #{companyHot,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>
