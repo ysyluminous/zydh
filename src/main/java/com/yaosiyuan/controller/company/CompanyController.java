@@ -50,14 +50,14 @@ public class CompanyController {
         Company company =   companySerivce.findCompanyByName(groupName);
         HashMap<String, Object> map = new HashMap<>();
 
-        if (i>0){
-            //删除成功
-            map.put("success",true);
-            map.put("msg",i);
-        }else {
-            map.put("success",false);
-            map.put("msg","删除错误");
-        }
+//        if (i>0){
+//            //删除成功
+//            map.put("success",true);
+//            map.put("msg",i);
+//        }else {
+//            map.put("success",false);
+//            map.put("msg","删除错误");
+//        }
         response.setContentType("text/html;charset=utf-8");
 
         JSONObject jsonObject = JSON.parseObject(JSON.toJSONString(map));

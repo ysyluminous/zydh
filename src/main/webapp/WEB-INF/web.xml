@@ -10,10 +10,7 @@
         <param-value>
             classpath:spring/spring-*.xml
         </param-value>
-
     </context-param>
-
-
     <!-- shiro过滤器 -->
      <!--这个filter要写在所有filter的最前面，保证他是过滤器中第一个起作用的-->
     <filter>
@@ -29,10 +26,6 @@
         <filter-name>shiroFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
-
-
-
     <!-- 编码过滤器 -->
     <filter>
         <filter-name>encodingFilter</filter-name>
@@ -67,13 +60,6 @@
         <load-on-startup>1</load-on-startup>
         <async-supported>true</async-supported>
     </servlet>
-
-
-
-
-
-
-
     <servlet-mapping>
         <servlet-name>SpringMVC</servlet-name>
         <!-- 此处可以可以配置成*.do，对应struts的后缀习惯 -->

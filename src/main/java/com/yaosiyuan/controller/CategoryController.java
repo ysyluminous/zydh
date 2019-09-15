@@ -30,7 +30,6 @@ import java.util.List;
 /**
  * @ClassName UserController
  * @Description //category 获取category
- * <p>
  * 功能：
  * 一个默认一个用户
  * 获取账号信息
@@ -85,11 +84,6 @@ public class CategoryController {
 
         return "redirect:/";
     }
-
-
-
-
-
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String add(HttpServletRequest request, Model model, ModelAndView modelAndView, int userId,String name ) throws UnsupportedEncodingException {
         request.setCharacterEncoding("UTF-8");//防止乱码
@@ -99,18 +93,13 @@ public class CategoryController {
         category.setName(name);
         category.setUserid(userId);
         categorySerivce.insert(category);
-
-
         return "redirect:/";
     }
-
     @RequestMapping(value = "/del", method = RequestMethod.POST)
     public String del(HttpServletRequest request, HttpServletResponse response,Model model, ModelAndView modelAndView, int id  ) throws IOException {
         request.setCharacterEncoding("UTF-8");//防止乱码
         int i = categorySerivce.deleteByPrimaryKey(id);
-
         HashMap<String, Object> map = new HashMap<>();
-
         if (i>0){
             //删除成功
             map.put("success",true);
@@ -160,7 +149,6 @@ public class CategoryController {
             //查询所有顶级类别
             for (Groups group : selectParentGroupsByCat) {
 //            System.out.println(group);
-
                 //如果是顶级类别
                 //查询顶级类别下的链接
                 Integer pGroupId = group.getGroupid();

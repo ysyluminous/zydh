@@ -33,26 +33,26 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="/index2.html"><b>Admin</b>LTE</a>
+    <a href="/index2.html"><b>昭阳导航</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
+    <p class="login-box-msg"></p>
 
     <form action="/user/login" method="post">
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" name="usereml">
+        <input type="email" class="form-control" name="usereml" placeholder="输入邮箱">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" name="userpwd">
+        <input type="password" class="form-control" name="userpwd" placeholder="输入密码">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
 
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          <button type="submit" class="btn btn-primary btn-block btn-flat">登陆</button>
         </div>
         <!-- /.col -->
       </div>

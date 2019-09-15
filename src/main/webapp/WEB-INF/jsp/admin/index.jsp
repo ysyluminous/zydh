@@ -1114,7 +1114,6 @@ desired effect
         * */
 
     addCartModel= function(){
-        alert("1111");
         $('#addCartModel').modal('toggle')
     }
 
@@ -1132,7 +1131,7 @@ desired effect
 
 
     addCatAjax = function (name,userId){
-        alert("进入复函数");
+        alert("123");
         $.ajax({
             url : '/category/add',
             type : 'post',
@@ -1150,11 +1149,6 @@ desired effect
 //code here...
             }
         });
-
-
-
-
-
 
         // var xhr=createXHR();
         // alert(name+userId);
@@ -1179,17 +1173,9 @@ desired effect
 
 
 
-
-
-
-
     function submit(){
 
     }
-
-
-
-
 
 
 //    dialog = function () {
@@ -1203,9 +1189,6 @@ desired effect
 //    exec = function () {
 //
 //    }
-
-
-
 
     createSubGroup=  function (id){
 
