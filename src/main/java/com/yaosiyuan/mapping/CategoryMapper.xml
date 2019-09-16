@@ -48,8 +48,7 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
     <insert id="insert" parameterType="com.yaosiyuan.model.Category">
-    insert into category (id, name, userId
-      )
+    insert into category (id, name, userId)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{userid,jdbcType=INTEGER}
       )
   </insert>

@@ -30,7 +30,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-
     <![endif]-->
     <script src="${pageContext.request.contextPath }/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
@@ -39,9 +38,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="${pageContext.request.contextPath }/plugins/layer/layer.js"></script>
     <script type="text/javascript">
 
-
+        $('.collapse').collapse()
        $(function(){
-
             // $(".removeGroup").css('display','block');
         });
 
@@ -77,7 +75,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                            }else{
                                layer.msg('添加成功', {icon: 2});
                            }
-//code here...
                        },
                        error:function(){
 
@@ -85,38 +82,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                title:"失败",
                                content:data.msg
                            });
-//code here...
                        },
                        fail:function(){
-
                            layer.open({
                                title:"信息",
                                content:data.msg
                            });
-//code here...
                        }
                    });
-
-
                }, function(){
                    layer.msg('长点心吧', {
                        time: 20000, //20s后自动关闭
                        btn: ['明白了', '知道了']
                    });
                });
-
-
-
            });
-
-
-
        }
-
     /*
     * 更改类别
     * */
-
     altCat = function(id,name,userid){
         alert(id+name+userid);
         layer.prompt({title: '输入要修改的类别名', formType: 0}, function(pass,index){
@@ -132,9 +116,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     dataType : "json",
                     contentType: 'application/x-www-form-urlencoded; charset=UTF-8',//防止乱码
                     success : function(data){
-
                         if (data.success){
-
                             // window.location.reload();
                             window.location.reload();
                             layer.msg('删除成功', {icon: 1});
@@ -146,43 +128,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }else{
                             layer.msg('删除失败', {icon: 2});
                         }
-//code here...
                     },
                     error:function(){
-
                         layer.open({
                             title:"失败",
                             content:data.msg
                         });
-//code here...
                     },
                     fail:function(){
-
                         layer.open({
                             title:"信息",
                             content:data.msg
                         });
-//code here...
                     }
                 });
-
-
             }, function(){
                 layer.msg('长点心吧', {
                     time: 20000, //20s后自动关闭
                     btn: ['明白了', '知道了']
                 });
             });
-
-
-
         });
-
-
-
     }
-
-
         /*
         *   删除类别
         * */
@@ -192,8 +159,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 time:5000,
                 content:"即将删除类别"+name
             });
-
-
             layer.confirm('确认删除'+name, {
                 btn: ['想好了','算啦吧'] //按钮
             }, function(){
@@ -205,9 +170,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     dataType : "json",
                     contentType: 'application/x-www-form-urlencoded; charset=UTF-8',//防止乱码
                     success : function(data){
-
                         if (data.success){
-
                             // window.location.reload();
                             window.location.reload();
                             layer.msg('删除成功', {icon: 1});
@@ -217,29 +180,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 content:"成功删除"+data.msg+"个父组"
                             });*/
                         }else{
-
                         }
-//code here...
                     },
                     error:function(){
-
                         layer.open({
                             title:"失败",
                             content:data.msg
                         });
-//code here...
                     },
                     fail:function(){
-
                         layer.open({
                             title:"信息",
                             content:data.msg
                         });
-//code here...
                     }
                 });
-
-
             }, function(){
                 layer.msg('长点心吧', {
                     time: 20000, //20s后自动关闭
@@ -253,14 +208,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
         * 管理模式
         * */
         managePage= function(){
-
             layer.msg('进入管理模式,刷新退出');
-
             $(".manageCategory").css("visibility","visible");
             // $("#div1").remove();
             // $("li").remove(".category");
             // $(".manageCategory").css('display','block');
-
             $(".addParentGroup").css('display','block');
             // $(".removeGroup").css('display','block');
             $(".stand").css('display','none');
@@ -268,33 +220,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
           /*  // catMod
             $(".stand").removeClass("col-xs-8 col-xs-8 col-md-8 col-lg-8");
             $(".stand").addClass("col-xs-12 col-xs-12 col-md-8 col-lg-8");*/
-
-
             // $('#addCartModel').modal('toggle')/**/
         }
-
-
-
         /*删除父分组
         * */
-
         $(function () {
             $("#removePartGroup").click(function () {
                 removePartGroup();
             });
         });
-
         removePartGroup = function(groupid){
             //确定组id
             alert(groupid);
 
             //ajax调用
             removePartGroupAjax(groupid);
-
         }
         removePartGroupAjax = function (groupid){
-
-
             // alert("进入复函数");
             $.ajax({
                 url : '/group/del',
@@ -304,12 +246,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 dataType : "json",
                 contentType: 'application/x-www-form-urlencoded; charset=UTF-8',//防止乱码
                 success : function(data){
-
                        if (data.success){
-
                             //模态框移除
                             $('#remove-group_'+groupid).modal('toggle');
-
                             //移除掉页面父组
                             $('#parentGroup_'+groupid).boxWidget('remove');
                              // window.location.reload();
@@ -332,17 +271,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 time:5000,
                                content:data.msg
                             });
-
                         }
-//code here...
                 },
                 error:function(){
-
                     layer.open({
                         title:"失败",
                         content:data.msg
                     });
-//code here...
                 },
                 fail:function(){
 
@@ -396,11 +331,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             addGroupAjax(parentGroupName,catId)
         }
-
-
-
         addGroupAjax = function (parentGroupName,catId){
-
 
             alert("进入复函数");
             $.ajax({
@@ -411,7 +342,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 contentType: 'application/x-www-form-urlencoded; charset=UTF-8',//防止乱码
                 success : function(data){
                     alert("成功啦");
-
                     $('#addGroup').modal('toggle');
                     window.location.reload();
                 },
@@ -420,7 +350,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 }
             });
         }
-
     </script>
     <!-- Google Font -->
     <link rel="stylesheet"
@@ -456,8 +385,6 @@ desired effect
 
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
-
-
             <!-- Sidebar Menu -->
             <%--<ul class="sidebar-menu" data-widget="tree">--%>
             <%--<li class="header">HEADER</li>--%>
@@ -519,13 +446,7 @@ desired effect
                         <li><a href="/company/add"><i class="fa fa-circle-o"></i>添加</a></li>
                     </ul>
                 </li>
-
-
-
-
                     <li class="header stand " >类别列表</li>
-
-
                     <c:forEach items="${categories}" var="categorie">
                         <c:if test="${isLogin=='default'}">
                             <li>
@@ -686,12 +607,11 @@ desired effect
                                             <h4 class="modal-title">确定确定要删除该分组吗？？？</h4>
                                         </div>
                                         <div class="modal-body">
-                                            大人！！三思啊！！
+                                           当前分组下的所有链接都将清空
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">让我再想想。。</button>
                                             <button type="button" class="btn btn-outline" onclick="removePartGroup(${group.groupid})" id="removePartGroup1">朕决定了</button>
-
                                         </div>
                                     </div>
                                     <!-- /.modal-content -->
@@ -700,7 +620,6 @@ desired effect
                             </div>
                             <!-- /.modal -->
                         </div><!-- /.box-tools -->
-
                     </div>
                     <!-- /.box-header -->
 
@@ -711,7 +630,6 @@ desired effect
                                         class="link-logo"></i><span
                                         class="link-title">${link.linktitle}</span></a><span
                                     class="sub-link"><span class="link-info">${link.linkinfo}</span>
-
                             </dd>
 
                         </c:forEach>
@@ -738,14 +656,14 @@ desired effect
                                 <li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">Tab 3</a></li>--%>
                                 <li class="dropdown manager" style="display:none">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                                        Dropdown <span class="caret"></span>
+                                        管理 <span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:addSubGroup(${group.groupid})">添加</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                                  <%--      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
                                         <li role="presentation" class="divider"></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>--%>
                                     </ul>
                                 </li>
                                 <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
@@ -852,13 +770,9 @@ desired effect
                                         </div>
                                             <%--静态框end--%>
                                     </div>
-
                                 </c:forEach>
-
-
                                 <!-- /.tab-pane -->
                             </div>
-
                             <!-- /.tab-content -->
                         </div>
 
@@ -1107,7 +1021,6 @@ desired effect
     });
 */
 
-
         /*
         * 添加类别
         *
@@ -1170,22 +1083,15 @@ desired effect
         // xhr.open("get","/category/add?name="+encodeURI(name)+"&userId="+encodeURI(userId),true);
         // xhr.send(null);
     }
-
-
-
     function submit(){
 
     }
-
 
 //    dialog = function () {
 //        alert("添加了")
 //        var code = "x0p('Enter Your Name',null,'input',function(button,text){if(button=='info'){x0p('Congratulations','Your name is '+text+'!','ok',false)}if(button=='cancel'){x0p('Canceled','You canceled input.','error',false)}});";
 //        eval(code);
 //    }
-//
-//
-//
 //    exec = function () {
 //
 //    }
@@ -1210,13 +1116,6 @@ desired effect
         xhr.open("get","/createLink?id="+id,true);
         xhr.send(null);
     }
-
-
-
-
-
-
-
 
     del = function (id){
 

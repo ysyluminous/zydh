@@ -198,10 +198,6 @@ public class CategoryController {
         return "admin/index";
     }
 
-
-//
-
-
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public String user(HttpServletRequest request, Model model, ModelAndView modelAndView){
         String logUserEmail1 = (String) request.getSession().getAttribute("logUserEmail");
@@ -256,18 +252,14 @@ public class CategoryController {
         //查询所有顶级类别
         for (Groups group : selectParentGroupsByCat) {
 //            System.out.println(group);
-
             //如果是顶级类别
             //查询顶级类别下的链接
             Integer pGroupId = group.getGroupid();
             List<Links> grouplinks = linkService.selectLinksByGroupId(pGroupId);
-
             group.setLinks(grouplinks);
-
             //如果是子类别
             List<Groups> subGroups = groupService.selectSubGroupByPid(pGroupId);
             group.setSubGroup(subGroups);
-
             for (Groups subGroup : subGroups) {
                 List<Links> links = linkService.selectLinksByGroupId(subGroup.getGroupid());
                 subGroup.setLinks(links);
@@ -277,7 +269,6 @@ public class CategoryController {
         model.addAttribute("groups", selectParentGroupsByCat);
         return "admin/index";
     }
-
 
 }
 

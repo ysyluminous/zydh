@@ -11,7 +11,7 @@
  Target Server Version : 50645
  File Encoding         : 65001
 
- Date: 15/09/2019 23:12:35
+ Date: 16/09/2019 18:17:13
 */
 
 SET NAMES utf8mb4;
@@ -22,66 +22,74 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `category`;
 CREATE TABLE `category`  (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `userId` int(11) NULL DEFAULT NULL,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of category
 -- ----------------------------
 INSERT INTO `category` VALUES (1, 1, '1');
 INSERT INTO `category` VALUES (2, 1, '2');
+INSERT INTO `category` VALUES (3, 1, '123');
+INSERT INTO `category` VALUES (4, 1, '123');
 
 -- ----------------------------
 -- Table structure for groups
 -- ----------------------------
 DROP TABLE IF EXISTS `groups`;
 CREATE TABLE `groups`  (
-  `groupId` int(11) NOT NULL,
+  `groupId` int(11) NOT NULL AUTO_INCREMENT,
   `groupName` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `parentId` int(11) NULL DEFAULT NULL,
   `catId` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`groupId`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of groups
 -- ----------------------------
 INSERT INTO `groups` VALUES (1, '搜索引擎', 0, 1);
 INSERT INTO `groups` VALUES (2, '1', 0, 1);
+INSERT INTO `groups` VALUES (4, '123', 1, 1);
+INSERT INTO `groups` VALUES (5, '123', 1, 1);
 
 -- ----------------------------
 -- Table structure for links
 -- ----------------------------
 DROP TABLE IF EXISTS `links`;
 CREATE TABLE `links`  (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `linkTitle` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `linkInfo` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `linkUrl` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `groupId` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of links
 -- ----------------------------
 INSERT INTO `links` VALUES (1, '百度', '中国最大', 'https://www.baidu.com/', 1);
 INSERT INTO `links` VALUES (2, '谷歌', '全球最大', 'https://www.google.com/', 1);
+INSERT INTO `links` VALUES (3, '123', '123123', '123', 123);
+INSERT INTO `links` VALUES (4, '123', '123', '213', 123);
+INSERT INTO `links` VALUES (5, '123', '123', '123', 123);
+INSERT INTO `links` VALUES (6, '123', '123', '123', 4);
 
 -- ----------------------------
 -- Table structure for user
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user`  (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `userName` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `userPwd` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `userEml` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of user
